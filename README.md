@@ -8,7 +8,7 @@
 
 ## Оглавление
 
-- [C# Шпаргалка](#c-cheat-sheet)
+- [C# Шпаргалка](#f)
   - [О шпаргалке](#about)
   - [Введение в С#](#c-introduction)
     - [Что такое С#?](#what-is-c)
@@ -317,34 +317,34 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ---
 
-## General Syntax
+## Общий синтаксис
 
-- Case sensitive.
-- Code is typed inside code blocks **{}**
-- Line termination is done using semicolon **;**
+- Учитывает регистр.
+- Код набирается внутри блоков кода **\{}**
+- Завершение строки осуществляется с помощью точки с запятой **;**
 
 ---
 
-## Comments
+## Комментарии
 
-- Single line comments are typed within two forward slashes:
+- Однострочные комментарии набираются внутри двух косых черт:
 
 ```csharp
-// Single Line Comment
+// Однострочный комментарий
 ```
 
-- Multi-line comments are typed with a forward slash followed by an asterisk. It must be closed by an asterisk followed by a forward slash.
+- Многострочные комментарии набираются через косую черту, за которой следует звездочка. Закрывается он звездочкой, за которой следует косая черта.
 
 ```csharp
 /*
-  This is a multi-line comment.
-  This is the second line of the comment.
+  Это многострочный комментарий.
+  Это вторая строка комментария.
 */
 ```
 
 ---
 
-## C# Hello World Console Application
+## Консольное приложение "Hello World"
 
 ```csharp
 class Hello
@@ -356,40 +356,43 @@ class Hello
 }
 ```
 
-**Note:** C# source files typically have the file extension **.cs**
+**Примечание:** Исходные файлы C# обычно имеют расширение файла **.cs**
 
 ---
 
-## C# Variables
+## Переменные С#
 
-**Syntax:**
+**Синтаксис:**
 
 ```
-<modifier> <datatype> <variablename> = <initialvalue>;
+<модификатор> <тип_данных> <имя_переменной> = <начальное_значение>;
 ```
 
-- Variables should start with underscore and cannot contain white spaces.
-- It can contain numbers but should always start with a capital letter.
-- It cannot contain any symbols (other than underscore).
+- Имя переменной должно начинаться с буквы или символа подчеркивания.
+- Имя переменной не может начинаться с цифры.
+- Имя переменной должно содержать только буквы, цифры и символ подчеркивания.
+- Имя переменной не может содержать пробелы.
+- Имя переменной должно быть описательным и отражать ее назначение.
+- Имя переменной должно быть уникальным в пределах области видимости, в которой она определена.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables
 
 ---
 
-## C# Naming Conventions
+## Соглашения об именах C#
 
-### Terminology
+### Терминология
 
-There are following three terminologies are used to declare C# and .NET naming standards.
+Для описания стандартов именования C# и .NET используются следующие три терминологии.
 
-- **Camel Case (camelCase):** In this standard, the first letter of the word always in small letter and after that each word starts with a capital letter.
-- **Pascal Case (PascalCase):** In this the first letter of every word is in capital letter.
-- **Underscore Prefix (_underScore):** For underscore ( __ ), the word after _ use camelCase terminology.
+- **Camel Case (camelCase):** В этом стандарте первая буква слова всегда пишется с маленькой буквы, а после этого каждое слово начинается с заглавной буквы.
+- **Pascal Case (PascalCase):** Здесь первая буква каждого слова написана заглавной буквой.
+- **Underscore Prefix (_underScore):** Для подчеркивания ( __ ), слово после _ используйте стандарт Camel Case.
 
-### Summary Table
+### Таблица результатов
 
-| Kind            | Rule            |
+| Типы и поля     | Стандарт написания |
 | --------------- | --------------- |
 | Private Field   | _lowerCamelCase |
 | Protected Field | UpperCamelCase  |
@@ -402,76 +405,76 @@ There are following three terminologies are used to declare C# and .NET naming s
 | Local Variable  | lowerCamelCase  |
 | Parameter       | lowerCamelCase  |
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
 https://google.github.io/styleguide/csharp-style.html
 https://www.dofactory.com/reference/csharp-coding-standards
 
 ---
 
-## C# Data Types
+## Типы данных C#
 
-### Value Types
+### Типы значений
 
-**For Reference:**
+**Для справки:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
 
-#### Simple Data Types
+#### Простые типы данных
 
-**For Reference:**
+**Для справки:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
-##### Bytes
+##### Байты
 
 ```csharp
 
-byte myUnsignedByte = 8; // Size: 8 bits  | Range: 0 to 255
-sbyte mySignedByte = -8; // Size: 8 bits  | Range: -128 to +127
+byte myUnsignedByte = 8; // Размер: 8 bits  | Диапазон: 0 to 255
+sbyte mySignedByte = -8; // Размер: 8 bits  | Диапазон: -128 to +127
 ```
 
-##### Unsigned Integers
+##### Беззнаковые целые числа
 
 ```csharp
 
-ushort myUnsignedShort = 16; // Size: 16 bits  | Range: 0 to 65535
-uint myUnsignedInt = 32; // Size: 32 bits  | Range: 0 to 2^32-1
-ulong myUnsignedLong = 64; // Size: 64 bits  | Range: 0 to 2^64-1
+ushort myUnsignedShort = 16; // Размер: 16 bits  | Диапазон: 0 to 65535
+uint myUnsignedInt = 32; // Размер: 32 bits  | Диапазон: 0 to 2^32-1
+ulong myUnsignedLong = 64; // Размер: 64 bits  | Диапазон: 0 to 2^64-1
 ```
 
-##### Signed Integers
+##### Целые числа со знаком
 
 ```csharp
-short mySignedShort = 16; // Size: 16 bits  | Range: -32768 to +32767
-int mySignedInt = 32; // Size: 32 bits  | Range: -2^31  to +2^31-1
-long mySignedLong = -64; // Size: 64 bits  | Range: -2^63  to +2^63-1
+short mySignedShort = 16; // Размер: 16 bits  | Диапазон: -32768 to +32767
+int mySignedInt = 32; // Размер: 32 bits  | Диапазон: -2^31  to +2^31-1
+long mySignedLong = -64; // Размер: 64 bits  | Диапазон: -2^63  to +2^63-1
 ```
 
-##### Floating-Point Types
+##### Типы с плавающей запятой
 
 ```csharp
-float myFloat = 3.14F; // Size: 32 bits  | Range: 7 digits of precision
-double myDouble = 3.14D; // Size: 64 bits  | Range: 15-16 digits of precision
-decimal myDecimal = 3.14M; // Size: 128 bits | Range: 28-29 digits of precision
+float myFloat = 3.14F; // Размер: 32 bits  | Диапазон: 7 digits of precision
+double myDouble = 3.14D; // Размер: 64 bits  | Диапазон: 15-16 digits of precision
+decimal myDecimal = 3.14M; // Размер: 128 bits | Диапазон: 28-29 digits of precision
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
 
-##### Unicode Characters
+##### Символы Юникода
 
 ```csharp
-char myChar = 'a'; // Size: 16 bits  | Range: Unicode character
+char myChar = 'a'; // Размер: 16 bits  | Диапазон: Unicode character
 ```
 
-##### Booleans
+##### Логические
 
 ```csharp
-bool myBool = true; // Size: 4 bits   | Range: true or false
+bool myBool = true; // Размер: 4 bits   | Диапазон: true or false
 ```
 
-#### Enum Types
+#### Типы перечислений
 
-An enum type is a distinct value type with a set of named constants.
+Тип перечисления — это отдельный значимый тип с набором именованных констант.
 
 ```csharp
 using System;
@@ -513,14 +516,14 @@ class Test
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 
-#### Structure Types
+#### Типы структур
 
-Like classes, structs are data structures that can contain data members and function members, but unlike classes, structs are value types and do not require heap allocation. A variable of a struct type directly stores the data of the struct, whereas a variable of a class type stores a reference to a dynamically allocated object. Struct types do not support user-specified inheritance, and all struct types implicitly inherit from type object.
+Подобно классам, структуры - это структуры данных, которые могут содержать элементы данных и функции-члены, но в отличие от классов, структуры являются типами значений и не требуют выделения кучи. Переменная типа struct непосредственно хранит данные структуры, тогда как переменная типа class хранит ссылку на динамически выделяемый объект. Типы Struct не поддерживают указанное пользователем наследование, и все типы struct неявно наследуются от типа object.
 
-Structs are particularly useful for small data structures that have value semantics. Complex numbers, points in a coordinate system, or key-value pairs in a dictionary are all good examples of structs. The use of structs rather than classes for small data structures can make a large difference in the number of memory allocations an application performs.
+Структуры особенно полезны для небольших структур данных, имеющих семантику значений. Комплексные числа, точки в системе координат или пары ключ-значение в словаре - все это хорошие примеры структур. Использование структур, а не классов, для небольших структур данных может существенно повлиять на количество выделений памяти, выполняемых приложением.
 
 ```csharp
 struct Point
@@ -534,43 +537,43 @@ struct Point
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 
-#### Tuple Types
+#### Типы кортежей
 
-Available in C# 7.0 and later, the tuples feature provides concise syntax to group multiple data elements in a lightweight data structure.
+Функция кортежей, доступная в C# 7.0 и более поздних версиях, предоставляет краткий синтаксис для группировки нескольких элементов данных в упрощенную структуру данных.
 
 ```csharp
 (double, int) t1 = (4.5, 3);
-Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}."); // Output => Tuple with elements 4.5 and 3.
+Console.WriteLine($"Кортеж с элементами {t1.Item1} and {t1.Item2}."); // Выход => Кортеж с элементами 4.5 и 3.
 
 (double Sum, int Count) t2 = (4.5, 3);
-Console.WriteLine($"Sum of {t2.Count} elements is {t2.Sum}."); // Output => Sum of 3 elements is 4.5.
+Console.WriteLine($"Сумма {t2.Count} элементов равна {t2.Sum}."); // Выход => Сумма 3 элементов равна 4,5.
 ```
 
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 
-#### Nullable Value Types
+#### Типы значений, допускающие значение NULL
 
-A nullable value type **```T?```** represents all values of its underlying value type **T** and an additional null value. For example, you can assign any of the following three values to a **```bool?```** variable: true, false, or null. An underlying value type **T** cannot be a nullable value type itself.
+Значение с возможностью обнуления типа **``T?``** представляет все значения его базового типа значений **T** и дополнительное значение null. Например, вы можете присвоить переменной **``bool?``** любое из следующих трех значений: true, false или null. Базовый тип значения **T** сам по себе не может быть типом значения с возможностью присвоить ему null.
 
 ```csharp
 int? b = 10;
 
 if (b.HasValue)
 {
-    Console.WriteLine($"b is {b.Value}");
+    Console.WriteLine($"b это {b.Value}");
 }
 
 else
 {
-    Console.WriteLine("b does not have a value");
+    Console.WriteLine("b не имеет значения");
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
 ### Reference Types
