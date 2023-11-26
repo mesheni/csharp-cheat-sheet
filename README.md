@@ -8,9 +8,9 @@
 
 ## Оглавление
 
-- [C# Шпаргалка](#f)
+- [C# Шпаргалка](#)
   - [О шпаргалке](#about)
-  - [Введение в С#](#c-introduction)
+  - [Введение в С#](#Введение-в-С#)
     - [Что такое С#?](#what-is-c)
     - [Для чего используется C#?](#what-is-c-used-for)
   - [Ключевые слова С#](#c-keywords)
@@ -122,7 +122,7 @@
 
 ---
 
-## О шпаргалке
+## О шпаргалке {#about}
 
 - Цель этой шпаргалки по C# — предоставить общие сведения о синтаксисе языка.
 - HTML-версия этого документа размещена по адресу: https://constructg.com/csharp-cheat-sheet/
@@ -576,39 +576,39 @@ else
 **Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
-### Reference Types
+### Ссылочные типы
 
-#### Built-In Reference Types
+#### Встроенные ссылочные типы
 
-##### Object Types
+##### Типы объектов
 
-The object type is an alias for System.Object in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from System.Object. You can assign values of any type to variables of type object. Any object variable can be assigned to its default value using the literal null.
+Тип объекта является псевдонимом System.Object в .NET. В унифицированной системе типов C# все типы, предопределенные и определяемые пользователем, ссылочные типы и типы значений, наследуются прямо или косвенно от System.Объект. Вы можете присваивать значения любого типа переменным типа object. Любой объектной переменной можно присвоить значение по умолчанию, используя литерал null.
 
-##### String Types
+##### Типы строк
 
-It is common to think of strings as arrays of characters. In reality, strings in C# are objects.
-When you declare a string variable, you basically instantiate an object of type String.
+Принято думать о строках как о массивах символов. На самом деле строки в C# являются объектами.
+Когда вы объявляете строковую переменную, вы, по сути, создаете экземпляр объекта типа String.
 
 ```csharp
-string fooString = "\"escape\" quotes and add \n (new lines) and \t (tabs)";
+string fooString = "\"экранируйте\" кавычки и добавьте \n (новые строки) and \t (табуляции)";
 Console.WriteLine(fooString);
 
-// You can access each character of the string with an indexer:
+// Вы можете получить доступ к каждому символу строки с помощью индексатора:
 char charFromString = fooString[1]; // => 'e'
 
-// Strings are immutable: you can't do fooString[1] = 'X';
+// Строки неизменяемы: вы не сможете сделать этого fooString[1] = 'X';
 
-// Compare strings with current culture, ignoring case
+// Сравнивайте строки с текущей культурой, игнорируя регистр
 string.Compare(fooString, "x", StringComparison.CurrentCultureIgnoreCase);
 
-// Formatting, based on sprintf
+// Форматирование, основанное на sprintf
 string fooFs = string.Format("Check Check, {0} {1}, {0} {1:0.0}", 1, 2);
 
-// Dates & Formatting
+// Даты и форматирование
 DateTime fooDate = DateTime.Now;
 Console.WriteLine(fooDate.ToString("hh:mm, dd MMM yyyy"));
 
-// String Interpolation
+// Интерполяция строк
 string myName = "Jane Doe";
 Console.WriteLine($"My name is: {myName}. It is great to be here!");
 
@@ -618,17 +618,17 @@ sb.Append("Hello ");
 sb.AppendLine("World!");
 Console.WriteLine(sb);
 
-// Verbatim String
-// You can use the @ symbol before a string literal to escape all characters in the string
+// Дословная строка
+// Вы можете использовать символ @ перед строковым литералом, чтобы экранировать все символы в строке
 string path = "C:\\Users\\User\\Desktop";
 string verbatimPath = @"C:\Users\User\Desktop";
 Console.WriteLine(path == verbatimPath);  // => true
 
-// You can split a string over two lines with the @ symbol. To escape " use ""
+// You can split a string over two lines with the @ symbol. Чтобы избежать " использования ""
 string bazString = @"Here's some stuff
 on a new line! ""Wow!"", the masses cried";
 
-// Popular String Methods & Properties
+// Популярные строковые методы и свойства
 string myText = "some text";
 
 Console.WriteLine(myText.IndexOf('t')); // Outputs => 5
@@ -649,12 +649,12 @@ myText = myText.Substring(2, 3);
 Console.WriteLine(myText); // Outputs "re"
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
 
-##### Delegate Types
+##### Типы делегатов
 
-A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of function pointers found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
+Тип делегата представляет ссылки на методы с определенным списком параметров и типом возвращаемого значения. Делегаты позволяют рассматривать методы как сущности, которые могут быть назначены переменным и переданы в качестве параметров. Делегаты аналогичны концепции указателей на функции, встречающейся в некоторых других языках, но, в отличие от указателей на функции, делегаты объектно-ориентированы и типобезопасны.
 
 ```csharp
 using System;
@@ -705,12 +705,12 @@ class Test
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
-#### Interface Types
+#### Типы интерфейсов
 
-An interface defines a contract that can be implemented by classes and structs. An interface can contain methods, properties, events, and indexers. An interface does not provide implementations of the members it defines—it merely specifies the members that must be supplied by classes or structs that implement the interface. Interfaces may employ multiple inheritance.
+Интерфейс определяет контракт, который может быть реализован классами и структурами. Интерфейс может содержать методы, свойства, события и индексаторы. Интерфейс не предоставляет реализации определяемых им элементов — он просто указывает элементы, которые должны предоставляться классами или структурами, реализующими интерфейс. Интерфейсы могут использовать множественное наследование.
 
 ```csharp
 public interface IShape
@@ -721,69 +721,69 @@ class Circle : IShape
 {
     public void Draw()
     {
-      Console.WriteLine("Circle Draw");
+      Console.WriteLine("Рисуем круг");
     }
 }
 static void Main(string[] args)
 {
     IShape c = new Circle();
-    c.Draw(); // Outputs "Circle Draw"
+    c.Draw(); // Выводит "Рисуем круг"
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
-#### Nullable Reference Types
+#### Типы ссылок, допускающие значение NULL
 
-Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the null-forgiving operator are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
+Обнуляемые ссылочные типы доступны, начиная с C# 8.0, в коде, который выбрал контекст, поддерживающий обнуление. Обнуляемые ссылочные типы, предупреждения статического анализа null и оператор, не допускающий обнуления, являются необязательными языковыми функциями. По умолчанию все они отключены. Контекст с возможностью обнуления контролируется на уровне проекта с помощью настроек сборки или в коде с помощью прагм.
 
 ```csharp
 string notNull = "Hello";
 string? nullable = default;
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types
 
-#### Array Types
+#### Типы массивов
 
-An array is a data structure that contains a number of variables that are accessed through computed indices. The variables contained in an array, also called the elements of the array, are all of the same type, and this type is called the element type of the array.
+Массив - это структура данных, содержащая ряд переменных, доступ к которым осуществляется через вычисляемые индексы. Переменные, содержащиеся в массиве, также называемые элементами массива, все имеют один и тот же тип, и этот тип называется типом элемента массива.
 
-Array types are reference types, and the declaration of an array variable simply sets aside space for a reference to an array instance. Actual array instances are created dynamically at run-time using the new operator. The new operation specifies the length of the new array instance, which is then fixed for the lifetime of the instance. The indices of the elements of an array range from 0 to Length - 1. The new operator automatically initializes the elements of an array to their default value, which, for example, is zero for all numeric types and null for all reference types.
+Типы массивов являются ссылочными типами, и объявление переменной массива просто выделяет место для ссылки на экземпляр массива. Фактические экземпляры массива создаются динамически во время выполнения с использованием оператора new. Операция new определяет длину нового экземпляра массива, которая затем фиксируется на время существования экземпляра. Индексы элементов массива варьируются от 0 до Length - 1. Оператор new автоматически инициализирует элементы массива их значением по умолчанию, которое, например, равно нулю для всех числовых типов и null для всех ссылочных типов.
 
-##### Array Of Simple Types
+##### Массив простых типов
 
 ```csharp
-int[] a1   = new int[10];        // One-Dimensional Array
-int[,] a2  = new int[10, 5];     // Two-Dimensional Array
-int[,,] a3 = new int[10, 5, 2];  // Three-Dimensional Array
+int[] a1   = new int[10];        // Одномерный массив
+int[,] a2  = new int[10, 5];     // Двумерный массив
+int[,,] a3 = new int[10, 5, 2];  // Трехмерный массив
 ```
 
-##### Jagged Arrays
+##### Зубчатые массивы
 
-**Jagged Array:** is an array with elements of an array type.
+**Зубчатый массив:** представляет собой массив с элементами типа array.
 
-**Syntax:**
+**Синтаксис:**
 
 ```
 data_type[][] name_of_array = new data_type[rows][]
 ```
 
-**Example 1:**
+**Пример 1:**
 
 ```csharp
-int[][] jaggedArray = new int[3][]; // Jagged Array
+int[][] jaggedArray = new int[3][]; // Зубчатый массив
 jaggedArray[0] = new int[10];
 jaggedArray[1] = new int[5];
 jaggedArray[2] = new int[20];
 ```
 
-**Example 2:**
+**Пример 2:**
 
 ```csharp
-int[][] anotherJaggedArray = new int[][] // Another way to declare Jagged Arrays
+int[][] anotherJaggedArray = new int[][] // Другой способ объявить зубчатые массивы
 {
     new int[] {1,8,2,7,9},
     new int[] {2,4,6},
@@ -791,14 +791,14 @@ int[][] anotherJaggedArray = new int[][] // Another way to declare Jagged Arrays
 };
 
 int x = anotherJaggedArray[2][1];
-Console.WriteLine(x); // Outputs => 42
+Console.WriteLine(x); // Вывод => 42
 ```
 
-##### Array Properties & Methods
+##### Свойства и методы массива
 
-The Array class in C# provides various properties and methods to work with arrays.
+Класс Array в C# предоставляет различные свойства и методы для работы с массивами.
 
-The Array class implements the **IEnumerable** interface, so you can **LINQ extension methods** such as Max(), Min(), Sum(), Average() and many others.
+Класс Array реализует интерфейс **IEnumerable**, поэтому вы можете использовать методы расширения LINQ**, такие как Max(), Min(), Sum(), Average() и многие другие.
 
 ```csharp
 using System;
@@ -818,7 +818,7 @@ public class Program
 }
 ```
 
-The **System.Array** class also includes methods for creating, manipulating, searching, and sorting arrays.
+Класс **System.Array** также включает методы для создания массивов, манипулирования ими, поиска и сортировки.
 
 ```csharp
 using System;
@@ -851,54 +851,54 @@ public class Program
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/
 https://docs.microsoft.com/en-us/dotnet/api/system.array
 https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable
 
 ---
 
-## Type Casting
+## Приведение типов
 
-Type casting is when you assign a value of one data type to another type.
+Приведение типов - это когда вы присваиваете значение одного типа данных другому типу.
 
-In C#, there are two types of casting:
+В C# существует два типа приведения:
 
-**Implicit Casting (automatically)** - converting a smaller type to a larger type size
+**Неявное приведение (автоматически)** - преобразование меньшего типа в больший размер типа
 
 > char -> int -> long -> float -> double
 
-**Explicit Casting (manually)** - converting a larger type to a smaller size type:
+**Явное приведение (вручную)** - преобразование типа большего размера в тип меньшего размера:
 
 > double -> float -> long -> int -> char
 
-### Implicit Casting
+### Неявное приведение
 
-Implicit casting is done automatically when passing a smaller size type to a larger size type.
+Неявное приведение выполняется автоматически при передаче типа меньшего размера в тип большего размера.
 
 ```csharp
 int myInt = 9;
-double myDouble = myInt;       // Automatic casting: int to double
+double myDouble = myInt;       // Автоматическое приведение: int в double
 
-Console.WriteLine(myInt);      // Outputs 9
-Console.WriteLine(myDouble);   // Outputs 9
+Console.WriteLine(myInt);      // Выводит 9
+Console.WriteLine(myDouble);   // Выводит 9
 ```
 
-### Explicit Casting
+### Явное приведение типов
 
-Explicit casting must be done manually by placing the type in parentheses in front of the value.
+Явное приведение должно быть выполнено вручную путем помещения типа в круглые скобки перед значением.
 
 ```csharp
 double myDouble = 9.78;
-int myInt = (int) myDouble;    // Manual casting: double to int
+int myInt = (int) myDouble;    // Явное приведение: double к int
 
-Console.WriteLine(myDouble);   // Outputs 9.78
-Console.WriteLine(myInt);      // Outputs 9
+Console.WriteLine(myDouble);   // Выводит 9.78
+Console.WriteLine(myInt);      // Выводит 9
 ```
 
-### Type Conversion Methods
+### Методы преобразования типов
 
-It is also possible to convert data types explicitly by using built-in methods.
+Также возможно явно преобразовывать типы данных с помощью встроенных методов.
 
 - ToBoolean
 - ToByte
@@ -922,39 +922,39 @@ int myInt = 10;
 double myDouble = 5.25;
 bool myBool = true;
 
-Console.WriteLine(Convert.ToString(myInt));    // convert int to string
-Console.WriteLine(Convert.ToDouble(myInt));    // convert int to double
-Console.WriteLine(Convert.ToInt32(myDouble));  // convert double to int
-Console.WriteLine(Convert.ToString(myBool));   // convert bool to string
+Console.WriteLine(Convert.ToString(myInt));    // преобразовать int в string
+Console.WriteLine(Convert.ToDouble(myInt));    // преобразовать int в double
+Console.WriteLine(Convert.ToInt32(myDouble));  // преобразовать double в int
+Console.WriteLine(Convert.ToString(myBool));   // преобразовать bool в string
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
 
 ---
 
-## Operators
+## Операторы
 
-### Arithmetic Operators
+### Арифметические операторы
 
 ```csharp
 float myFloat = 0;
 
-myFloat = 3 + 2; // Addition       => 5
-myFloat = 3 - 2; // Subtraction    => 1
-myFloat = 3 * 2; // Multiplication => 6
-myFloat = 3 / 2; // Division       => 1
-myFloat = 3 % 2; // Modulus        => 1
+myFloat = 3 + 2; // Сложение       => 5
+myFloat = 3 - 2; // Вычитание    => 1
+myFloat = 3 * 2; // Умножение => 6
+myFloat = 3 / 2; // Деление       => 1
+myFloat = 3 % 2; // Деление по модулю        => 1
 
 /*
-    Notice that the division sign gives an incorrect result.
-    This is because it operates on two integer values and will therefore round the result and return an integer.
-    To get the correct value, one of the numbers needs to be converted into a floating-point number.
+    Обратите внимание, что знак деления дает неверный результат.
+Это связано с тем, что он оперирует двумя целыми значениями и, следовательно, округляет результат и возвращает целое число.
+Чтобы получить правильное значение, одно из чисел необходимо преобразовать в число с плавающей запятой.
 */
 myFloat = 3 / (float) 2; // 1.5
 ```
 
-### Combined Assignment Operators
+### Комбинированные операторы присваивания
 
 ```csharp
 float myFloat = 0;
@@ -966,18 +966,18 @@ myFloat /= 2; // myNumber = myNumber / 2
 myFloat %= 2; // myNumber = myNumber % 2
 ```
 
-### Increment and Decrement Operators
+### Операторы инкремента и декремента
 
 ```csharp
 int myCounter = 0;
 
-Console.WriteLine(myCounter++); //Prints "0", _myCounter = 1. Post-Incrementation
-Console.WriteLine(++myCounter); //Prints "2", _myCounter = 2. Pre-Incrementation
-Console.WriteLine(myCounter--); //Prints "2", _myCounter = 1. Post-Decrementation
-Console.WriteLine(--myCounter); //Prints "0", _myCounter = 0. Pre-Decrementation
+Console.WriteLine(myCounter++); // Выводит "0", _myCounter = 1. Последующий инкремент
+Console.WriteLine(++myCounter); // Выводит "2", _myCounter = 2. Предварительный инкремент
+Console.WriteLine(myCounter--); // Выводит "2", _myCounter = 1. Последующий декремент
+Console.WriteLine(--myCounter); // Выводит "0", _myCounter = 0. Предварительный декремент
 ```
 
-### Comparison Operators
+### Операторы сравнения
 
 ```csharp
 Console.WriteLine($"3 == 2? {3 == 2}"); // => false
@@ -988,83 +988,83 @@ Console.WriteLine($"2 <= 2? {2 <= 2}"); // => true
 Console.WriteLine($"2 >= 2? {2 >= 2}"); // => true
 ```
 
-### Logical Operators
+### Логические операторы
 
 ```csharp
 bool myBool;
 
-myBool = (true && false); // Logical AND => (false)
-myBool = (true || false); // Logical OR  => (true)
-myBool = !(true); // Logical NOT => (false)
+myBool = (true && false); // Логическое И => (false)
+myBool = (true || false); // Логическое ИЛИ  => (true)
+myBool = !(true); // Логическое НЕ => (false)
 
 Console.WriteLine(myBool);
 ```
 
-### Bitwise Operators
+### Побитовые операторы
 
 ```csharp
 int myInteger;
 
-// The bitwise operators can manipulate individual bits inside an integer.
+// Побитовые операторы могут манипулировать отдельными битами внутри целого числа.
 
-myInteger = 5 & 4; // and (0b101 & 0b100 = 0b100 = 4)
-myInteger = 5 | 4; // or (0b101 | 0b100 = 0b101 = 5)
-myInteger = 5 ^ 4; // xor (0b101 ^ 0b100 = 0b001 = 1)
-myInteger = 4 << 1; // left shift (0b100 << 1 = 0b1000 = 8)
-myInteger = 4 >> 1; // right shift (0b100 >> 1 = 0b10 = 2)
-myInteger = ~ 4; // invert (~0b00000100 = 0b11111011 = -5)
+myInteger = 5 & 4; // И (0b101 & 0b100 = 0b100 = 4)
+myInteger = 5 | 4; // ИЛИ (0b101 | 0b100 = 0b101 = 5)
+myInteger = 5 ^ 4; // Исключающее ИЛИ (0b101 ^ 0b100 = 0b001 = 1)
+myInteger = 4 << 1; // сдвиг влево (0b100 << 1 = 0b1000 = 8)
+myInteger = 4 >> 1; // сдвиг вправо (0b100 >> 1 = 0b10 = 2)
+myInteger = ~ 4; // инвертирование (~0b00000100 = 0b11111011 = -5)
 
-// These bitwise operators have shorthand assignment operators, just like the arithmetic operators.
-
-myInteger = 5;
-myInteger &= 4; // and (0b101 & 0b100 = 0b100 = 4)
+// Эти побитовые операторы имеют сокращенные операторы присваивания, точно так же, как арифметические операторы.
 
 myInteger = 5;
-myInteger |= 4; // or (0b101 | 0b100 = 0b101 = 5)
+myInteger &= 4; // И (0b101 & 0b100 = 0b100 = 4)
 
 myInteger = 5;
-myInteger ^= 4; // xor (0b101 ^ 0b100 = 0b001 = 1)
+myInteger |= 4; // ИЛИ (0b101 | 0b100 = 0b101 = 5)
 
 myInteger = 5;
-myInteger <<= 1; // left shift (0b101 << 1 = 0b1010 = 10)
+myInteger ^= 4; // Исключающее ИЛИ (0b101 ^ 0b100 = 0b001 = 1)
 
 myInteger = 5;
-myInteger >>= 1; // right shift (0b101 >> 1 = 0b10 = 2)
+myInteger <<= 1; // сдвиг влево (0b101 << 1 = 0b1010 = 10)
+
+myInteger = 5;
+myInteger >>= 1; // сдвиг вправо (0b101 >> 1 = 0b10 = 2)
 ```
 
-### Operator Precedents
+### Прецеденты операторов
 
 ```csharp
 /*
 
-- parentheses ()
+- круглые скобки ()
 
-- Postfix Increment and Decrement         ++, --
-- Prefix Increment, Decrement and Unary   ++, --, +, -, !, ~
+- Постфиксный инкремент и декремент           ++, --
+- Префиксный инкремент, декремент и унарный   ++, --, +, -, !, ~
 
-- Multiplicative                          *, /, %
-- Additive                                +, -
-
-- Shift                                   <<, >>
-- Relational                              <, <=, >, >=
-- Equality                                ==, !=
-
-- Bitwise AND                             &
-- Bitwise XOR                             ^
-- Bitwise OR                              |
-
-- Logical AND                             &&
-- Logical OR                              ||
-
-- Ternary                                 ? :
-- Assignment                              =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
+- Умножение, деление, деление по модулю       *, /, %
+- Сложение, вычитание                         +, -
+                                              
+- Сдвиг                                       <<, >>
+- Реляционный                                 <, <=, >, >=
+- Равенство                                   ==, !=
+                                              
+- Побитовое И                                 &
+- Побитовое исключающее ИЛИ                   ^
+- Побитовое ИЛИ                               |
+                                              
+- Логическое И                                &&
+- Логическое ИЛИ                              ||
+                                              
+- Тернарный                                   ? :
+- Назначение                                  =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
 
 */
 ```
 
-The higher the precedence of operator is, the higher it appears in the table.
+Чем выше приоритет оператора, тем выше он отображается в таблице.
 
-To make things clearer, parentheses () can be used to specify which part of the expression will be evaluated first. Parentheses have the greatest precedence of all operators.
+Для большей ясности можно использовать круглые скобки (), чтобы указать, какая часть выражения будет вычислена первой. Круглые скобки имеют наибольший приоритет из всех операторов.
 
 ```csharp
 int myInteger;
@@ -1073,14 +1073,14 @@ myInteger = 4 + 6 / 2;   // => 7
 myInteger = (4 + 6) / 2; // => 5
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
 
 ---
 
-## Statements
+## Конструкции
 
-### Conditions
+### Условия
 
 #### **```if```**...**```else if```**...**```else```**
 ```csharp
@@ -1088,20 +1088,20 @@ int time = 22;
 
 if (time < 10)
 {
-  Console.WriteLine("Good morning.");
+  Console.WriteLine("Доброе утро.");
 }
 else if (time < 20)
 {
-  Console.WriteLine("Good day.");
+  Console.WriteLine("Добрый день.");
 }
 else
 {
-  Console.WriteLine("Good evening.");
+  Console.WriteLine("Добрый вечер.");
 }
 
-// Ternary operators
-// A simple if/else can be written as follows
-// <condition> ? <true> : <false>
+// Тернарные операторы
+// Простое if/else можно записать следующим образом:
+// <условие> ? <true> : <false>
 int toCompare = 17;
 string isTrue = toCompare == 17 ? "True" : "False";
 ```
