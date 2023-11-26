@@ -130,24 +130,24 @@
 - Контрибуты, исправления багов, дополнения, и улучшения будут высоко оценены.
 - Подготовлен [ConstructG.com](https://constructg.com/). Construct G — это онлайн-академия разработки игр.
 
-## C# Introduction
+## Введение в С#
 
-### What is C#?
+### Что такое С#?
 
-C# is pronounced "C-Sharp". It is an object-oriented programming language created by Microsoft that runs on the .NET Framework. C# has roots from the C family, and the language is close to other popular languages like C++ and Java.
+C# произносится как «Си-Шарп». Это объектно-ориентированный язык программирования, созданный Microsoft и работающий на .NET Framework. C# имеет корни из семейства C и близок к другим популярным языкам, таким как C++ и Java.
 
-### What Is C# Used For?
+### Для чего используется C#?
 
-- Database applications
-- Desktop applications
-- Games
-- Mobile applications
-- Virtual Reality (VR) applications
-- Web applications
-- Web development
-- Web services
+- Приложения для работы с базами данных
+- Приложения для персональных компьютеров
+- Игры
+- Мобильные приложения
+- Приложения виртуальной реальности (VR)
+- Веб-приложения
+- Веб-разработка
+- Веб-сервисы
 
-**For Reference:**
+**Для справки:**
 https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
 https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 
