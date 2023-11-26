@@ -153,11 +153,11 @@ https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 
 ---
 
-## C# Keywords
+## Ключевые слова С#
 
-### Reserved Keywords
+### Зарезервированные ключевые слова
 
-Keywords are predefined, reserved identifiers that have special meanings to the compiler.
+Ключевые слова — это предопределенные зарезервированные идентификаторы, которые имеют особое значение для компилятора.
 
 - abstract
 - as
@@ -236,9 +236,9 @@ Keywords are predefined, reserved identifiers that have special meanings to the 
 - volatile
 - while
 
-### Contextual Keywords
+### Контекстные ключевые слова
 
-A contextual keyword is used to provide a specific meaning in the code, but it is not a reserved word in C#. Some contextual keywords, such as partial and where, have special meanings in two or more contexts.
+Контекстное ключевое слово используется для придания определенного значения в коде, но оно не является зарезервированным словом в C#. Некоторые контекстные ключевые слова, такие как «partial» и «where», имеют особое значение в двух или более контекстах.
 
 - add
 - alias
@@ -260,56 +260,59 @@ A contextual keyword is used to provide a specific meaning in the code, but it i
 - notnull
 - on
 - orderby
-- partial (method)
-- partial (type)
+- partial (метод)
+- partial (тип)
 - remove
 - select
 - set
-- unmanaged (generic type constraint)
+- unmanaged (ограничение общего типа)
 - value
 - var
-- when (filter condition)
-- where (generic type constraint)
-- where (query clause)
+- when (состояние фильтра)
+- where (ограничение общего типа)
+- where (пункт запроса LINQ)
 - yield
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
 
 ---
 
-## C# Special Characters
+## Специальные символы C#
 
-Special characters are predefined, contextual characters that modify the program element (a literal string, an identifier, or an attribute name) to which they are prepended. C# supports the following special characters:
+Специальные символы — это предопределенные контекстные символы, которые изменяют элемент программы (литеральную строку, идентификатор или имя атрибута), к которому они добавляются. C# поддерживает следующие специальные символы:
 
-- **@**, the verbatim identifier character.
-- **$**, the interpolated string character.
+- **@**, символ дословного идентификатора.
+- **$**, интерполированный строковый символ.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
 
 ---
 
-## C# Preprocessor Directives
+## Директивы препроцессора C#
 
-C# has the following preprocessor directives:
+Препроцессор - это программа, которая выполняет обработку исходного кода до его компиляции. 
+Директивы препроцессора - это инструкции, которые сообщают препроцессору, как обрабатывать исходный код.
 
-- \#if
-- \#else
-- \#elif
-- \#endif
-- \#define
-- \#undef
-- \#warning
-- \#error
-- \#line
-- \#region
-- \#endregion
-- \#pragma
-- \#pragma warning
-- \#pragma checksum
+В C# есть следующие директивы препроцессора:
 
-**Learn More:**
+- \#if: начинает блок условной компиляции.
+- \#else: определяет альтернативный блок условной \компиляции, который выполняется, если условие #if не \выполняется.
+- \#elif: определяет дополнительное условие для блока \условной компиляции.
+- \#endif: завершает блок условной компиляции.
+- \#define: определяет макрос, который может быть \использован для замены текста в исходном коде.
+- \#undef: отменяет определение макроса.
+- \#warning: выводит предупреждение во время компиляции.
+- \#error: выводит сообщение об ошибке во время компиляции.
+- \#line: изменяет номер строки исходного кода, который \будет использоваться для отладки.
+- \#region: начинает блок кода, который может быть свернут \или развернут в редакторе кода.
+- \#endregion: завершает блок кода, начатый с помощью \#region.
+- \#pragma: используется для указания специфических \инструкций компилятору.
+- \#pragma warning: управляет выводом предупреждений \компилятора.
+- \#pragma checksum: добавляет контрольную сумму в сборку для проверки целостности.
+
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives/
 
 ---
