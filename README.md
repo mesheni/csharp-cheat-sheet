@@ -1109,10 +1109,11 @@ string isTrue = toCompare == 17 ? "True" : "False";
 #### **```switch```** Case
 
 ```csharp
-// A switch works with the byte, short, char, and int data types.
-// It also works with enumerated types (discussed in Enum Types),
-// the String class, and a few special classes that wrap
-// primitive types: Character, Byte, Short, and Integer.
+// Переключатель (switch) работает с типами данных byte, short, char и int.
+// Он также работает с перечислимыми типами (обсуждается в Enum Types),
+// классом String и несколькими специальными классами, оборачивающими
+// примитивные типы: Character, Byte, Short и Integer.
+
 int month = 3;
 string monthString;
 switch (month)
@@ -1126,9 +1127,9 @@ switch (month)
     case 3:
         monthString = "March";
         break;
-    // You can assign more than one case to an action
-    // But you can't add an action without a break before another case
-    // (if you want to do this, you would have to explicitly add a goto case x
+    // Вы можете назначить более одного случая для действия.
+    // Однако нельзя добавить действие без оператора break перед другим случаем
+    // (если вы хотите сделать это, вам придется явно добавить goto case x).
     case 6:
     case 7:
     case 8:
@@ -1140,9 +1141,9 @@ switch (month)
 }
 ```
 
-### Loops
+### Циклы
 
-#### **```while```** Loop
+#### Цикл **```while```**
 
 ```csharp
 
@@ -1155,7 +1156,7 @@ while (fooWhile < 100)
 }
 ```
 
-#### **```do```**...**```while```** Loop
+#### Цикл **```do```**...**```while```**
 
 ```csharp
 // Do While Loop
@@ -1179,7 +1180,7 @@ do
 } while (fooDoWhile < 100);
 ```
 
-#### **```for```** Loop
+#### Цикл **```for```**
 
 ```csharp
 for (int fooFor = 0; fooFor < 10; fooFor++)
@@ -1188,7 +1189,7 @@ for (int fooFor = 0; fooFor < 10; fooFor++)
 }
 ```
 
-#### **```foreach```** Loop
+#### Цикл **```foreach```**
 
 ```csharp
 foreach (char character in "Hello World".ToCharArray())
@@ -1197,7 +1198,9 @@ foreach (char character in "Hello World".ToCharArray())
 }
 ```
 
-### **```goto```** Statement
+### Оператор безусловного перехода **```goto```**
+
+Оператор безусловного перехода goto используется для передачи управления программы к определенной метке (метка - это идентификатор, представляющий собой метку в программе). 
 
 ```csharp
 static void Main(string[] args) {
@@ -1215,7 +1218,7 @@ static void Main(string[] args) {
 }
 ```
 
-### **```return```** Statement
+### Оператор **```return```**
 
 ```csharp
 static int Add(int a, int b)
@@ -1230,7 +1233,7 @@ static void Main(string[] args)
 }
 ```
 
-### **```yield```** Statement
+### Оператор **```yield```**
 
 ```csharp
 static IEnumerable<int> Range(int from, int to)
@@ -1251,7 +1254,9 @@ static void Main(string[] args)
 }
 ```
 
-### **```checked```** and **```unchecked```** Statements
+Этот код на C# определяет метод `Range`, который создает итератор для генерации последовательности целых чисел от заданного значения `from` до `to`. Затем метод `Main` использует этот итератор для вывода чисел от -10 до 9 включительно с помощью цикла `foreach` и `Console.WriteLine`. Оператор `yield return` позволяет лениво генерировать значения по мере необходимости, что может быть полезным для больших последовательностей данных.
+
+### Операторы **```checked```** and **```unchecked```**
 
 ```csharp
 static void Main(string[] args)
@@ -1268,7 +1273,9 @@ static void Main(string[] args)
 }
 ```
 
-### **```lock```** Statement
+Этот код в C# иллюстрирует использование ключевых слов `checked` и `unchecked` для контроля переполнения при выполнении арифметических операций. В блоке `checked`, операция `int.MaxValue + 1` вызывает `System.OverflowException`. В блоке `unchecked`, хотя происходит переполнение, оно не вызывает исключение, и результат обрезается, становясь минимальным значением типа `int`.
+
+### Оператор **```lock```** 
 
 ```csharp
 class Account
@@ -1288,7 +1295,9 @@ class Account
 }
 ```
 
-### **```using```** Statement
+Этот код представляет класс `Account` с полем `balance`, представляющим баланс счета. Метод `Withdraw` выполняет снятие денег с учетом блокировки (`lock`), чтобы обеспечить потокобезопасность при изменении баланса. Если запрашиваемая сумма (`amount`) превышает текущий баланс, генерируется исключение `Exception` с сообщением "Insufficient funds". В противном случае запрашиваемая сумма вычитается из баланса.
+
+### Оператор **```using```**
 
 ```csharp
 static void Main(string[] args)
@@ -1302,7 +1311,9 @@ static void Main(string[] args)
 }
 ```
 
-### Exception Handling
+Этот код создает и использует объект `TextWriter` для записи строк в файл "test.txt". С помощью конструкции `using` обеспечивается автоматическое закрытие файла после завершения блока кода. В результате выполнения программы в файле "test.txt" будут записаны три строки: "Line one", "Line two" и "Line three".
+
+### Обработка исключений
 
 ```csharp
 static double Divide(double x, double y)
@@ -1339,6 +1350,8 @@ static void Main(string[] args)
 }
 ```
 
+Этот код на C# определяет функцию `Divide`, которая выполняет деление двух чисел, и в методе `Main` использует механизм обработки исключений для проверки ввода и обработки возможных ошибок. Если количество аргументов командной строки не равно двум, генерируется исключение с сообщением "Two numbers are required". Затем происходит парсинг аргументов в тип `double`, и если делитель (`y`) равен нулю, генерируется исключение `DivideByZeroException`. В блоке `finally` выводится сообщение "Terminating!", которое будет выполнено в любом случае, даже если произойдет исключение или не произойдет.
+
 **Learn More:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/statements
 
@@ -1361,28 +1374,28 @@ namespace Example
   {
       private int realNum, imaginaryNum;
 
-      // Defining the constructor
+      // Определение конструктора
       public Complex()
       {
           realNum = 0;
           imaginaryNum = 0;
       }
 
-      // SetValue method sets value of real and img
+      // Метод SetValue устанавливает значения действительной и мнимой частей.
       public void SetValue(int r, int i)
       {
           realNum = r;
           imaginaryNum = i;
       }
 
-      // DisplayValue displays values of real and img
+      // Метод DisplayValue отображает значения действительной и мнимой частей.
       public void DisplayValue()
       {
           Console.WriteLine("Real = " + realNum);
           Console.WriteLine("Imaginary = " + imaginaryNum);
       }
 
-      // Defining the destructor for class Complex
+      // Определение деструктора для класса Complex.
       ~Complex()
       {
           Console.WriteLine("Destructor was called");
@@ -1394,47 +1407,47 @@ namespace Example
   {
       static void Main(string[] args)
       {
-          // Creating an instance of class Complex C invokes constructor
+          // Создание экземпляра класса Complex C вызывает конструктор.
           Complex myComplexNumber = new Complex();
 
-          // Calling SetValue method using instance C Setting values of real to 2 and img to 3
+          // Вызов метода SetValue с использованием экземпляра C. Установка значений для действительной части в 2 и мнимой в 3.
           myComplexNumber.SetValue(2, 3);
 
-          // Displaying values of real and imaginary parts
+          // Отображение значений действительной и мнимой частей.
           myComplexNumber.DisplayValue();
       }
   }
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/objects
 
-### Members
+### Члены
 
-The members of a class are either static members or instance members. Static members belong to classes, and instance members belong to objects (instances of classes).
+Члены класса могут быть либо статическими, либо экземплярными. Статические члены принадлежат классам, а экземплярные члены принадлежат объектам (экземплярам классов).
 
-The following table provides an overview of the kinds of members a class can contain.
+В следующей таблице предоставлен обзор видов членов, которые могут содержаться в классе.
 
-| Member       | Description                                                  |
+| Член         | Описание                                                    |
 | ------------ | ------------------------------------------------------------ |
-| Constants    | Constant values associated with the class                    |
-| Fields       | Variables of the class                                       |
-| Methods      | Computations and actions that can be performed by the class  |
-| Properties   | Actions associated with reading and writing named properties of the class |
-| Indexers     | Actions associated with indexing instances of the class like an array |
-| Events       | Notifications that can be generated by the class             |
-| Operators    | Conversions and expression operators supported by the class  |
-| Constructors | Actions required to initialize instances of the class or the class itself |
-| Destructors  | Actions to perform before instances of the class are permanently discarded |
-| Types        | Nested types declared by the class                           |
+| Константы    | Константные значения, связанные с классом                   |
+| Поля         | Переменные класса                                           |
+| Методы       | Вычисления и действия, которые может выполнять класс        |
+| Свойства     | Действия, связанные с чтением и записью именованных свойств класса |
+| Индексаторы  | Действия, связанные с индексированием экземпляров класса, подобно массиву |
+| События      | Уведомления, которые может генерировать класс               |
+| Операторы    | Преобразования и операторы выражений, поддерживаемые классом |
+| Конструкторы | Действия, необходимые для инициализации экземпляров класса или самого класса |
+| Деструкторы  | Действия, выполняемые перед окончательным удалением экземпляров класса |
+| Типы         | Вложенные типы, объявленные классом                          |
 
-### Constructors
+### Конструкторы
 
-Whenever a class or struct is created, its constructor is called. A class or struct may have multiple constructors that take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code that is flexible and easy to read.
+Когда создается экземпляр класса или структуры, вызывается его конструктор. У класса или структуры может быть несколько конструкторов, принимающих разные аргументы. Конструкторы позволяют программисту устанавливать значения по умолчанию, ограничивать создание экземпляров и писать гибкий и читаемый код.
 
-**Note:** You can also chain and overload constructors when needed.
+**Примечание:** При необходимости можно также цеплять и перегружать конструкторы.
 
 ```csharp
 class MyRectangle
@@ -1454,12 +1467,12 @@ class MyRectangle
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
 
-### The ```this``` Keyword
+### Ключевое слово ```this```
 
-Inside the constructor, as well as in other methods belonging to the object, a special keyword called this can be used. This keyword is a reference to the current instance of the class. Suppose, for example, that the constructor’s parameters have the same names as the corresponding fields. The fields could then still be accessed by using the this keyword, even though they are overshadowed by the parameters.
+Внутри конструктора, а также в других методах, принадлежащих объекту, можно использовать специальное ключевое слово, называемое ```this```. Это ключевое слово представляет собой ссылку на текущий экземпляр класса. Допустим, например, что параметры конструктора имеют те же имена, что и соответствующие поля. Тогда поля все равно могут быть доступны с использованием ключевого слова ```this```, даже если они перекрываются параметрами.
 
 ```csharp
 class MyRectangle
@@ -1474,16 +1487,16 @@ class MyRectangle
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
 
-### Garbage Collector
+### Сборщик мусора
 
-The .NET Framework has a garbage collector that periodically releases memory used by objects when they are no longer accessible. This frees the programmer from the often tedious and error-prone task of manual memory management.
+В .NET Framework есть сборщик мусора, который периодически освобождает память, используемую объектами, когда они больше не доступны. Это освобождает программиста от часто утомительной и ошибочной задачи ручного управления памятью.
 
-An object will be eligible for destruction when there are no more references to it.
+Объект становится подлежащим уничтожению, когда на него больше нет ссылок.
 
-**Note:** Objects cannot be explicitly deallocated in C#.
+**Примечание:** В C# объекты не могут быть явно деаллоцированы.
 
 ```csharp
 static void Main(string[] args)
@@ -1496,17 +1509,17 @@ static void Main(string[] args)
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
 
-### Destructors / Finalizers
+### Деструкторы / Финализаторы
 
-The destructor or finilizer is used to release any unmanaged resources allocated by the object. It is called automatically before an object is destroyed and cannot be called explicitly.
+Деструктор или финализатор используется для освобождения любых неуправляемых ресурсов, выделенных объектом. Он вызывается автоматически перед уничтожением объекта и не может быть вызван явно.
 
-- A class can only have one destructor.
-- Destructors cannot be called. They are invoked automatically.
-- A destructor does not take modifiers or have parameters.
-- The name of a destructor is exactly the same as the class prefixed with a tilde (```~```).
+- У класса может быть только один деструктор.
+- Деструкторы не могут быть вызваны явно. Они вызываются автоматически.
+- Деструктор не принимает модификаторов и не имеет параметров.
+- Имя деструктора точно такое же, как у класса, но с префиксом тильды (```~```).
 
 ```csharp
 class Message
@@ -1528,58 +1541,61 @@ static void Main(string[] args)
 }
 ```
 
-**Note:** The .NET Framework garbage collector automatically manages the allocation and release of memory for objects. However, when a class uses unmanaged resources - such as network connections, files, and user interface components – a destructor should be used to free up those resources when they are no longer needed.
+**Примечание:** Сборщик мусора в .NET Framework автоматически управляет выделением и освобождением памяти для объектов. Однако, когда класс использует неуправляемые ресурсы, такие как сетевые подключения, файлы и компоненты пользовательского интерфейса, следует использовать деструктор для освобождения этих ресурсов, когда они больше не нужны.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors
 
 ---
 
-## Object-Oriented Programming (OOP)
+## Объектно-ориентированное программирование (ООП)
 
-C# is an object-oriented language. Four of the key techniques used in object-oriented programming are:
+C# — это объектно-ориентированный язык. Четыре ключевых приёма, используемых в объектно-ориентированном программировании, это:
 
-- **Abstraction** means hiding the unnecessary details from type consumers.
-- **Encapsulation** means that a group of related properties, methods, and other members are treated as a single unit or object.
-- **Inheritance** describes the ability to create new classes based on an existing class.
-- **Polymorphism** means that you can have multiple classes that can be used interchangeably, even though each class implements the same properties or methods in different ways.
+— **Абстракция** означает скрытие ненужных подробностей от потребителей типа.
 
-**Learn More:**
+— **Инкапсуляция** означает, что группа связанных свойств, методов и других членов рассматривается как единое целое.
+
+— **Наследование** описывает возможность создания новых классов на основе существующего класса.
+
+— **Полиморфизм** означает, что у вас может быть несколько классов, которые могут использоваться взаимозаменяемо, даже если каждый класс реализует одни и те же свойства или методы по-разному.
+
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
 
-### Encapsulation / Access Levels
+## Инкапсуляция / Уровни доступа
 
-In programming, encapsulation means more than simply combining members together within a class; it also means restricting access to the inner workings of that class.
-Encapsulation is implemented by using access modifiers. An access modifier defines the scope and visibility of a class member.
+В программировании инкапсуляция означает не только объединение членов внутри класса, но и ограничение доступа к внутренним рабочим процессам этого класса.
+Инкапсуляция реализуется с помощью модификаторов доступа. Модификатор доступа определяет область видимости и доступность члена класса.
 
-Each member of a class has an associated accessibility, which controls the regions of program text that are able to access the member. There are five possible forms of accessibility. These are summarized in the following tables.
+У каждого члена класса есть связанный с ним уровень доступности, который контролирует области кода программы, имеющие доступ к члену. Существуют пять возможных форм доступности. Они представлены в следующей таблице.
 
-| Access Modifier    | Meaning                                                      |
-| ------------------ | ------------------------------------------------------------ |
-| public             | Access not limited                                           |
-| protected          | Access limited to this class or classes derived from this class |
-| internal           | Access limited to this program                               |
-| protected internal | Access limited to this program or classes derived from this class |
-| private            | Access limited to this class                                 |
+| Модификатор доступа    | Значение                                                       |
+| ------------------ | ------------------------------------------------------------- |
+| public             | Доступ не ограничен                                           |
+| protected           | Доступ ограничен этим классом или производными от этого класса |
+| internal            | Доступ ограничен этой программой                               |
+| protected internal  | Доступ ограничен этой программой или производными от этого класса |
+| private             | Доступ ограничен этим классом                                 |
 
-**Note:** When choosing an access level, it is generally best to use the most restrictive level possible.
+**Примечание:** При выборе уровня доступности обычно лучше использовать наиболее строгий уровень, допустимый в данном контексте.
 
-| Accessibility | Meaning                                                      |
-| ------------- | ------------------------------------------------------------ |
-| Events        | Notifications that can be generated by the class             |
-| Operators     | Conversions and expression operators supported by the class  |
-| Constructors  | Actions required to initialize instances of the class or the class itself |
-| Destructors   | Actions to perform before instances of the class are permanently discarded |
-| Types         | Nested types declared by the class                           |
+| Доступность | Значение                                                       |
+| ---------- | ------------------------------------------------------------- |
+| События      | Уведомления, которые могут быть сгенерированы этим классом          |
+| Операторы     | Конвертации и операторы выражений, поддерживаемые этим классом     |
+| Конструкторы   | Действия, необходимые для инициализации экземпляров этого класса или самого класса |
+| Деструкторы   | Действия, которые необходимо выполнить перед постоянным удалением экземпляров этого класса |
+| Типы         | вложенные типы, объявленные этим классом                         |
 
-### Inheritance
+## Наследование
 
-Inheritance allows a class to acquire the members of another class. It allows to define a class based on another class. This makes creating and maintaining an application easy.
+Наследование позволяет классу наследовать свойства другого класса. Это позволяет определять класс на основе другого класса. Это упрощает создание и обслуживание приложений.
 
-The class whose properties are inherited by another class is called the **Base class**.
-The class which inherits the properties is called the **Derived class**.
+Класс, свойства которого наследуются другим классом, называется базовым классом.
+Класс, который наследует свойства, называется производным классом.
 
-**Note:** C# does not support multiple inheritance. However, you can use interfaces to implement multiple inheritance.
+**Примечание:** C# не поддерживает множественное наследование. Однако вы можете использовать интерфейсы для реализации множественного наследования.
 
 ```csharp
 using System;
@@ -1641,15 +1657,15 @@ namespace RectangleApplication
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
 
-### Polymorphism / Redefining Members
+## Полиморфизм / Изменение членов
 
-The word polymorphism means "having many forms". In C#, polymorphism means that a single method can have a number of different implementations. Typically, polymorphism occurs when there is a hierarchy of classes and they are related through inheritance from a common base class.
+Слово "полиморфизм" означает "имеющий много форм". В C# полиморфизм означает, что один и тот же метод может иметь несколько различных реализаций. Обычно полиморфизм возникает, когда есть иерархия классов, связанных отношением наследования от общего базового класса.
 
-Polymorphism means that a call to a member method will cause a different implementation to be executed depending on the type of object that invokes the method.
+Полиморфизм означает, что вызов метода будет вызывать выполнение другой реализации в зависимости от типа объекта, вызывающего метод.
 
 ```csharp
 using System;
@@ -1696,23 +1712,26 @@ namespace SamplePolymorphism
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
 
-### Static
+## Свойство Static
 
-Use the static modifier to declare a static member, which belongs to the type itself rather than to a specific object.
+Используйте модификатор "static", чтобы объявить статический член, который принадлежит самому типу, а не конкретному объекту.
 
-The static modifier can be used to declare static classes. In classes, interfaces, and structs, you may add the static modifier to fields, methods, properties, operators, events, and constructors.
+Модификатор "static" можно использовать для объявления статических классов. В классах, интерфейсах и структурах вы можете добавить модификатор "static" к полям, методам, свойствам, операторам, событиям и конструкторам.
 
-**Note 1:** The static modifier can't be used with indexers or finalizers.
-**Note 2:** An entire class can be declared as static.
-**Note 3:** A static class can contain only static members.
-**Note 4:** You cannot instantiate an object of a static class, as only one instance of the static class can exist in a program.
+**Примечание 1:** Модификатор "static" нельзя использовать с индексаторами или финализаторами.
 
-Beginning with C# 8.0, you can add the static modifier to a local function. A static local function can't capture local variables or instance state.
+**Примечание 2:** Целый класс можно объявить статическим.
 
-Beginning with C# 9.0, you can add the static modifier to a lambda expression or anonymous method. A static lambda or anonymous method can't capture local variables or instance state.
+**Примечание 3:** Статический класс может содержать только статические члены.
+
+**Примечание 4:** Вы не можете создать экземпляр объекта статического класса, так как в программе может существовать только одна копия статического класса.
+
+Начиная с C# 8.0, вы можете добавить модификатор "static" к локальной функции. Статическая локальная функция не может захватывать локальные переменные или состояние экземпляра.
+
+Начиная с C# 9.0, вы можете добавить модификатор "static" к лямбда-выражению или анонимному методу. Статический лямбда или анонимный метод не может захватывать локальные переменные или состояние экземпляра.
 
 ```csharp
 using System;
@@ -1754,20 +1773,23 @@ namespace StaticDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
 
-### Properties
+## Свойства
 
-Properties in C# provide the ability to protect a field by reading and writing to it through special methods called **accessors**. They are generally declared as ```public``` with the same data type as the field they are going to protect, followed by the name of the property and a code block that defines the ```get``` and ```set``` accessors.
+Свойства в C# предоставляют возможность защитить поле, читая и записывая в него через специальные методы, называемые **доступами**. Они обычно объявляются как `public` с тем же типом данных, что и поле, которое они защищают, за которым следует имя свойства, а затем блок кода, который определяет методы `get` и `set` доступа.
 
-Properties allow developers to change the internal implementation of the property without breaking any programs that are using it.
+Свойства позволяют разработчикам изменять внутреннюю реализацию свойства без нарушения работы любых программ, использующих его.
 
-**Note 1:** It is a good practice to encapsulate members of a class and provide access to them only through public methods. Properties provide a flexible mechanism to read, write, or compute the value of a private field.
-**Note 2:** It is advised for the property name to be the same as the private field with a capital letter.
-**Note 3:** Any accessor of a property can be omitted depending on the objective and design of the program.
-**Note 4:** A property can also be private, so it can be called only from within the class.
+**Примечание 1:** Хорошей практикой является инкапсуляция членов класса и предоставление доступа к ним только через публичные методы. Свойства предоставляют гибкий механизм для чтения, записи или вычисления значения приватного поля.
+
+**Примечание 2:** Рекомендуется, чтобы имя свойства было идентично имени приватного поля с использованием заглавной буквы.
+
+**Примечание 3:** Любой доступ к свойству может быть пропущен по усмотрению в зависимости от цели и проектирования программы.
+
+**Примечание 4:** Свойство также может быть приватным, поэтому его можно вызывать только изнутри класса.
 
 ```csharp
 using System;
@@ -1816,18 +1838,19 @@ namespace PropertiesDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/properties
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 
-### Indexers
+## Индексаторы
 
-Indexers allow instances of a class or struct to be indexed just like arrays. The indexed value can be set or retrieved without explicitly specifying a type or instance member. Indexers resemble properties except that their accessors take parameters.
+Индексаторы позволяют экземплярам класса или структуры быть индексированными, как массивы. Индексированное значение можно установить или получить без явного указания типа или члена экземпляра. Индексаторы похожи на свойства, за исключением того, что их доступные методы принимают параметры.
 
-Declaration of an **indexer** is to some extent similar to a **property**. The difference is that **indexer** accessors require an **index**. Like a property, you use get and set accessors for defining an indexer. However, where properties return or set a specific data member, indexers return or set a particular value from the object instance.
+Декларация индексатора в некотором роде напоминает декларацию свойства. Разница в том, что доступные методы индексатора требуют индекса. Как и для свойств, вы используете методы get и set для определения индексатора. Однако, в отличие от свойств, которые возвращают или устанавливают конкретное поле объекта, индексаторы возвращают или устанавливают определенное значение из экземпляра объекта.
 
-**Note 1:** Indexers are defined with the ```this``` keyword.
-**Note 2:** Usually, programmers use indexers when a class represents a list, collection, or an array of objects.
+**Примечание 1:** Индексаторы определяются с использованием ключевого слова `this`.
+
+**Примечание 2:** Обычно программисты используют индексаторы, когда класс представляет список, коллекцию или массив объектов.
 
 ```csharp
 using System;
@@ -1868,22 +1891,22 @@ namespace IndexerDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/
 
-### Abstraction
+## Абстракция
 
-#### Abstract Classes & Methods
+#### Абстрактные классы и методы
 
-Polymorphism is used when you have different derived classes with the same method, which has different implementations in each class. This behavior is achieved through ```virtual``` methods that are **overridden** in the derived classes.
+Полиморфизм используется, когда у вас есть различные производные классы с одним и тем же методом, который имеет разные реализации в каждом классе. Это поведение достигается с помощью виртуальных методов, которые переопределяются в производных классах.
 
-In some situations there is no meaningful need for the ```virtual``` method to have a separate definition in the base class. These methods are defined using the ```abstract``` keyword and specify that the derived classes must define that method on their own.
+В некоторых ситуациях нет необходимости, чтобы виртуальный метод имел отдельное определение в базовом классе. Эти методы определяются с использованием ключевого слова `abstract`. Это указывает, что производные классы должны определить этот метод самостоятельно.
 
-The **abstract modifier** indicates that the thing being modified has a missing or incomplete implementation. The abstract modifier can be used with classes, methods, properties, indexers, and events.
+**Модификатор abstract** указывает, что модифицируемый объект имеет пропущенную или неполную реализацию. Модификатор abstract может использоваться с классами, методами, свойствами, индексаторами и событиями.
 
-Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes, not instantiated on its own. Members marked as abstract must be implemented by non-abstract classes that derive from the abstract class.
+Используйте модификатор abstract в объявлении класса, чтобы указать, что класс предназначен только в качестве базового класса для других классов, а не для создания экземпляров самостоятельно. Члены, помеченные как abstract, должны быть реализованы не-абстрактными классами, производными от абстрактного класса.
 
-**Note:** You cannot create objects of a class containing an abstract method, which is why the class itself should be abstract.
+**Примечание:** Объекты не могут быть созданы из класса, содержащего абстрактный метод, поскольку класс сам по себе является абстрактным.
 
 ```csharp
 using System;
@@ -1935,23 +1958,26 @@ class DerivedClass : BaseClass
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
 
-#### Interfaces
+## Интерфейсы
 
-An interface is a completely abstract class, which contains only abstract members. It is declared using the ```interface``` keyword.
+Интерфейс — это полностью абстрактный класс, содержащий только абстрактные члены. Он объявляется с использованием ключевого слова `interface`.
 
-When a class implements an interface, it must also implement, or define, all of its methods.
+Когда класс реализует интерфейс, он также должен реализовать, или определить, все его методы.
 
-The term "**implementing an interface**"" is used (opposed to the term "inheriting from") to describe the process of creating a class based on an interface. The interface simply describes what a class should do. The class implementing the interface must define how to accomplish the behaviors.
+Термин "**реализация интерфейса**" используется (в отличие от термина "наследование от") для описания процесса создания класса на основе интерфейса. Интерфейс просто описывает, что должен делать класс. Класс, реализующий интерфейс, должен определить, как это поведение будет выполнено.
 
-A class can inherit from just one base class, but it can implement **multiple interfaces**. Therefore, by using interfaces you can include behavior from multiple sources in a class. To implement multiple interfaces, use a comma separated list of interfaces when creating the class.
+Класс может наследовать только от одного базового класса, но может реализовывать **несколько интерфейсов**. Таким образом, с помощью интерфейсов вы можете включить поведение из нескольких источников в класс. Чтобы реализовать несколько интерфейсов, используйте список, разделенный запятыми, при создании класса.
 
-**Note 1:** All members of the interface are by default abstract, so no need to use the abstract keyword.
-**Note 2:** All members of an interface are always public, and no access modifiers can be applied to them.
-**Note 3:** It is common to use the capital letter **I** as the starting letter for an interface name.
-**Note 4:** Interfaces cannot contain fields (variables).
+**Примечание 1:** Все члены интерфейса по умолчанию являются абстрактными, поэтому нет необходимости использовать ключевое слово `abstract`.
+
+**Примечание 2:** Все члены интерфейса всегда являются публичными, и к ним нельзя применять модификаторы доступа.
+
+**Примечание 3:** Обычно используется буква `I` в качестве первой буквы имени интерфейса.
+
+**Примечание 4:** Интерфейсы не могут содержать поля (переменные).
 
 ```csharp
 using System;
@@ -2011,23 +2037,24 @@ namespace InterfacesDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
 ### Namespaces
 
-**Namespaces** provide a way to group related top-level members into a hierarchy. They are also used to avoid naming conflicts. A top-level member, such as a class, that is not included in a namespace is said to belong to the **default namespace**. It can be moved to another namespace by being enclosed in a **namespace block**. You can use a namespace to organize code elements. You can define your own namespaces and use them in your program.
+**Namespaces** предоставляют способ группировки связанных элементов верхнего уровня в иерархию. Они также используются для предотвращения конфликтов имен. Элемент верхнего уровня, такой как класс, который не входит в пространство имен, считается принадлежащим к **стандартному пространству имен**. Его можно переместить в другое пространство имен, заключив его в блок пространства имен. Вы можете использовать пространство имен для организации кодовых элементов. Вы можете определить свои собственные пространства имен и использовать их в своей программе.
 
-**Properties Of Namespaces:**
+**Свойства пространств имен:**
 
-- They organize large code projects.
-- They are delimited by using the ```.``` operator.
-- The ```using``` keyword states that the program is using a given namespace.
-- The global namespace is the "root" namespace: ```1global::System``` will always refer to the **.NET** System namespace.
+- Они организуют большие проекты по программированию.
+- Они ограничены использованием оператора ``.``.
+- Ключевое слово `using` указывает, что программа использует определенное пространство имен.
+- Глобальное пространство имен является корневым пространством имен: `1global::System` всегда будет ссылаться на пространство имен **.NET** System.
 
-**Note 1:** The naming convention for namespaces is the same as for classes, with each word initially capitalized.
-**Note 2:** The **.NET Framework** uses namespaces to organize its classes.
+**Примечание 1:** Соглашения о наименовании пространств имен такие же, как и для классов, с каждой словоформой, начинающейся с заглавной буквы.
+
+**Примечание 2:** **.NET Framework** использует пространства имен для организации своих классов.
 
 ```csharp
 namespace NamespaceDemonstration
@@ -2042,7 +2069,7 @@ namespace NamespaceDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/
 
 ### Operator Overloading
