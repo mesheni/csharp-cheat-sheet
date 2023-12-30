@@ -1357,13 +1357,13 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expr
 
 ---
 
-## Classes & Objects
+## Классы и объекты
 
-Classes are the most fundamental of C#'s types. A class is a data structure that combines state (fields) and actions (methods and other function members) in a single unit. A class provides a definition for dynamically created instances of the class, also known as objects. Classes support inheritance and polymorphism, mechanisms whereby derived classes can extend and specialize base classes.
+Классы — это наиболее фундаментальные типы в C#. Класс — это структура данных, которая объединяет состояние (поля) и действия (методы и другие члены функций) в единое целое. Класс предоставляет определение для динамически создаваемых экземпляров класса, также известных как объекты. Классы поддерживают наследование и полиморфизм, механизмы, с помощью которых производные классы могут расширять и специализировать базовые классы.
 
-New classes are created using class declarations. A class declaration starts with a header that specifies the attributes and modifiers of the class, the name of the class, the base class (if given), and the interfaces implemented by the class. The header is followed by the class body, which consists of a list of member declarations written between the delimiters { and }.
+Новые классы создаются с помощью объявлений классов. Объявление класса начинается с заголовка, который определяет атрибуты и модификаторы класса, имя класса, базовый класс (если он есть) и интерфейсы, реализуемые классом. Заголовок следует за телом класса, которое состоит из списка объявлений членов, записанных между ограничителями `{` и `}`.
 
-You can find an example below that demonstrates a class with a constructor and destructor.
+Приведенный ниже пример демонстрирует класс с конструктором и деструктором.
 
 ```csharp
 using System;
@@ -2072,11 +2072,11 @@ namespace NamespaceDemonstration
 **Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/
 
-### Operator Overloading
+## Перегрузка операторов
 
-**Operator overloading** allows operators to be **redefined** and used where one or both of the operands are of a certain class. When done correctly, this can simplify the code and make user-defined types as easy to use as the simple types.
+**Перегрузка операторов** позволяет операторам быть **переопределенными** и использоваться там, где один или оба операнта принадлежат определенному классу. Когда это делается правильно, это может упростить код и сделать пользовательские типы такими же простыми в использовании, как и простые типы.
 
-Overloaded operators are methods with special names, where the keyword ```operator``` is followed by the **symbol** for the operator being defined. Similar to any other method, an overloaded operator has a return type and a parameter list.
+Перегруженные операторы — это методы с особыми именами, которые следуют за ключевым словом `operator` и символом оператора, который определяется. Подобно любому другому методу, перегруженный оператор имеет тип возвращаемого значения и список параметров.
 
 ```csharp
 using System;
@@ -2118,34 +2118,36 @@ namespace OperatorOverloadDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
 
 ---
 
-## Delegates
+## Делегаты
 
-A **delegate** is a type used to reference a method. This allows methods to be assigned to variables and passed as arguments. The delegate’s declaration specifies the method signature to which objects of the delegate type can refer. Delegates are by convention named with each word initially capitalized, followed by Delegate at the end of the name.
+Делегат — это тип, используемый для ссылки на метод. Это позволяет методам присваиваться переменным и передаваться в качестве аргументов. Объявление делегата определяет сигнатуру метода, на который могут ссылаться объекты типа делегата. Делегиты именуются в соответствии с общепринятым соглашением, где каждое слово начинается с заглавной буквы, а `Delegate` находится в конце имени.
 
-In other words, the delegate is a reference type data type that defines the method signature. You can define variables of delegate, just like other data type, that can refer to any method with the same signature as the delegate.
+Иными словами, делегит — это тип данных ссылок, который определяет сигнатуру метода. Вы можете определять переменные делегитов, как и другие типы данных, которые могут ссылаться на любой метод с той же сигнатурой, что и делегит.
 
-**Note 1:** You can also pass delegates as parameters if needed.
-**Note 2:** You can also define generic delegates in C#.
-**Note 3:** In **.NET**, [```Func```](https://docs.microsoft.com/en-us/dotnet/api/system.func-1) and [```Action```](https://docs.microsoft.com/en-us/dotnet/api/system.action) types are built-in generic delegates that should be used for most common delegates instead of creating new custom ones.
+**Примечание 1:** При необходимости вы также можете передавать делегиты в качестве параметров.
 
-There are three steps involved while working with delegates:
+**Примечание 2:** В C# также можно определить обобщенные делегиты.
 
-1. Declare a delegate
-2. Set a target method
-3. Invoke a delegate
+**Примечание 3:** В .NET [```Func```](https://docs.microsoft.com/en-us/dotnet/api/system.func-1) и [```Action```](https://docs.microsoft.com/en-us/dotnet/api/system.action) являются встроенными обобщенными делегатами, которые следует использовать для большинства распространенных делегатов, а не создавать новые пользовательские.
 
-**Delegate Syntax:**
+Работа с делегатами включает три шага:
+
+1. Объявить делегат
+2. Установить целевой метод
+3. Вызвать делегат
+
+**Синтаксис делегатов:**
 
 ```
 [access modifier] delegate [return type] [delegate name]([parameters])
 ```
 
-**Delegate Demonstration:**
+**Демонстрация делегата:**
 
 ```csharp
 namespace DelegatesDemonstration
@@ -2180,7 +2182,7 @@ namespace DelegatesDemonstration
 }
 ```
 
-**Multicast Delegate Demonstration:**
+**Демонстрация делегата многоадресной рассылки:**
 
 ```csharp
 using System;
@@ -2231,7 +2233,7 @@ public class Program
 }
 ```
 
-**Generic Delegate Demonstration:**
+**Общая демонстрация делегата:**
 
 ```csharp
 using System;
@@ -2261,24 +2263,24 @@ public class Program
 }
 ```
 
-**Built-in Delegates:**
+## Встроенные делегаты
 
-C# provides some built-in delegates that are useful for common purposes. These provide a shorthand notation that virtually eliminates the need to declare delegate types.
+C# предоставляет некоторые встроенные делегаты, которые полезны для общих целей. Они предоставляют сокращенную запись, которая практически исключает необходимость объявления типов делегатов.
 
-**Examples:**
+**Примеры:**
 
-- **Action**: used with methods that don’t return a value and have no parameter list.
-- **Action<>**: used with methods that at least have one argument and don’t return a value.
-- **Func<>**: used with methods that return a value and may have a parameter list.
-- **Predicate<>**: represents a method that takes one input parameter and returns a bool value on the basis of some criteria.
+- **Action**: используется с методами, которые не возвращают значение и не имеют списка параметров.
+- **Action<>**: используется с методами, которые, по крайней мере, имеют один аргумент и не возвращают значение.
+- **Func<>**: используется с методами, которые возвращают значение и могут иметь список параметров.
+- **Predicate<>**: представляет метод, который принимает один входной параметр и возвращает булево значение на основе некоторых критериев.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 https://docs.microsoft.com/en-us/dotnet/api/system.delegate
 
-### Anonymous Methods
+## Анонимные методы
 
-Anonymous methods are introduced in C# 2.0. They can be assigned to delegate objects. An anonymous method is specified by using the ```delegate``` keyword followed by a method parameter list and body. This can simplify the delegate’s instantiation since a separate method will not have to be defined in order to instantiate the delegate.
+Анонимные методы были введены в C# 2.0. Они могут быть присвоены объектам делегатов. Анонимный метод определяется с помощью ключевого слова `delegate`, за которым следует список параметров и тело метода. Это может упростить создание экземпляров делегатов, поскольку отдельный метод не нужно определять для создания экземпляра делегата.
 
 ```csharp
 delegate void MyDelegate(string str);
@@ -2301,13 +2303,12 @@ public class Program
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions
 
-### Lambda Expressions
+## Выражения лямбда
 
-Lambda expressions were introduced in C# 3.0. They achieve the same goal as anonymous methods, but with a more concise
-syntax. A lambda expression is written as a parameter list followed by the lambda operator (=>) and an expression.
+Выражения лямбда были введены в C# 3.0. Они достигают той же цели, что и анонимные методы, но с более компактным синтаксисом. Выражение лямбда записывается в виде списка параметров, за которым следует оператор лямбда (=>) и выражение.
 
 ```csharp
 namespace LambdaDemonstration
@@ -2331,23 +2332,23 @@ namespace LambdaDemonstration
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 
 ---
 
-## Events
+## События
 
-Events enable a class or object to notify other classes or objects when something of interest occurs. The class that sends (or raises) the event is called the **publisher** and the classes that receive (or handle) the event are called **subscribers**.
+События позволяют классу или объекту уведомлять другие классы или объекты о возникновении чего-либо интересного. Класс, который отправляет (или вызывает) событие, называется **распространителем**, а классы, которые получают (или обрабатывают) событие, называются **подписчиками**.
 
-Think of an event as an **encapsulated delegate**; It is dependent on the delegate. The delegate defines the signature for the event handler method of the subscriber class. It also avoids overwriting of a method reference by restricting the use of the assignment ```=``` operator.
+Рассматривайте событие как **инкапсулированный делегат**; Он зависит от делегата. Делегат определяет сигнатуру метода обработчика событий класса-подписчика. Он также избегает перезаписи ссылки на метод путем ограничения использования оператора присваивания `=``.
 
-**Events Declaration:**
+**Объявление событий:**
 
-- **Step 1:** Declare a delegate.
-- **Step 2:** Declare a variable of the delegate with event keyword.
+- **Шаг 1:** Объявить делегат.
+- **Шаг 2:** Объявить переменную делегата с ключевым словом `event`.
 
-**Basic Demonstration:**
+**Простая демонстрация:**
 
 ```csharp
 namespace EventDemonstration
@@ -2382,30 +2383,30 @@ namespace EventDemonstration
 }
 ```
 
-**Notes:**
+## Примечания:
 
-- An event is a wrapper around a delegate. It depends on the delegate.
-- Use "event" keyword with delegate type variable to declare an event.
-- Use built-in delegate ```EventHandler``` or ```EventHandler<TEventArgs>``` for common events.
-- The publisher class raises an event, and the subscriber class registers for an event and provides the event-handler method.
-- Name the method which raises an event prefixed with "**On**" with the event name.
-- The signature of the handler method must match the delegate signature.
-- Register with an event using the ```+=``` operator.
-- Unsubscribe an event using the ```-=``` operator.
-- Pass event data using ```EventHandler<TEventArgs>```.
-- Derive **EventArgs** base class to create custom event data class.
-- Events can be declared ```static```, ```virtual```, ```sealed```, and ```abstract```.
-- An **Interface** can include the event as a member.
-- Event handlers are invoked **synchronously** if there are multiple **subscribers**.
+- Событие является оберткой для делегата. Оно зависит от делегата.
+- Используйте ключевое слово "event" с типом делегата переменной для объявления события.
+- Используйте встроенный делегат `EventHandler` или `EventHandler<TEventArgs>` для общих событий.
+- Распространительный класс вызывает событие, а класс-подписчик регистрируется на событие и предоставляет метод обработчика событий.
+- Название метода, который вызывает событие, начинается с "**On**" с именем события.
+- Подпись метода обработчика событий должна соответствовать подписи делегата.
+- Зарегистрируйтесь на событие, используя оператор `+=``.
+- Отмените регистрацию на событие, используя оператор `-=``.
+- Передайте данные события, используя `EventHandler<TEventArgs>`.
+- Создайте класс пользовательских данных события, наследовавшись от `EventArgs`.
+- События могут быть объявлены как `static`, `virtual`, `sealed` и `abstract`.
+- Интерфейс может включать событие в качестве члена.
+- Обработчики событий вызываются **синхронно**, если есть несколько подписчиков.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
 
 ---
 
-## Generics
+## Обобщенные типы
 
-Generics introduce the concept of type parameters to .NET, which make it possible to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code.
+Обобщенные типы вводят концепцию параметрических типов в .NET, что позволяет проектировать классы и методы, которые откладывают спецификацию одного или нескольких типов до момента объявления и создания экземпляров класса клиентом.
 
 ```csharp
 using System;
@@ -2453,25 +2454,25 @@ namespace Example
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
 
 ---
 
-## Generic Collections
+## Обобщенные коллекции
 
-A collection is used to group related objects. Unlike an array, it is dynamic and can also group objects. A collection can grow and shrink to accommodate any number of objects. Collection classes are organized into namespaces and contain built in methods for processing elements within the collection.
+Коллекция используется для группировки связанных объектов. В отличие от массива, она динамическая и также может группировать объекты. Коллекция может расти и уменьшаться, чтобы вместить любое количество объектов. Классы коллекций организованы в пространства имен и содержат встроенные методы для обработки элементов в коллекции.
 
-A collection organizes related data in a computer so that it can be used efficiently. Different kinds of collections are suited to different kinds of applications, and some are highly specialized to specific tasks.
+Коллекция организует связанные данные в компьютере таким образом, чтобы их можно было использовать эффективно. Разные виды коллекций подходят для разных видов приложений, и некоторые из них специализированы для конкретных задач.
 
-A collection typically includes methods to add, remove, and count objects. The ```for``` statement and the ```foreach``` statement are used to iterate through collections. Since a collection is a class you must first declare an instance of the class before you can add elements to that collection.
+Коллекция обычно включает методы для добавления, удаления и подсчета объектов. Для перебора элементов коллекции используются оператор `for...in` и оператор `foreach`. Поскольку коллекция является классом, вам сначала необходимо объявить экземпляр класса, прежде чем добавлять элементы в эту коллекцию.
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/standard/generics/collections
 
-### List
+## Список
 
-A list is similar to an array, but the elements in a list can be inserted and removed dynamically. The C# generic collection ```List<T>``` class requires all elements be of the same type ```T```.
+Список похож на массив, но элементы в списке можно добавлять и удалять динамически. Обобщенный класс коллекции C# `List<T>` требует, чтобы все элементы были одного типа `T`.
 
 ```csharp
 using System;
@@ -2510,14 +2511,14 @@ namespace SampleList
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
 
-### SortedList
+## Отсортированный список
 
-A sorted list is a collection of key/value pairs that are sorted by key. A key can be used to access its corresponding value in the sorted list.
+Отсортированный список - это коллекция пар ключ/значение, которые упорядочены по ключу. Ключ может использоваться для доступа к соответствующему значению в отсортированном списке.
 
-The C# generic collection ```SortedList<K, V>``` class requires all element key/value pairs to be of the same type ```K```, ```V```. Duplicate keys are not permitted, which ensures that every key/value pair is unique.
+Обобщенный класс коллекции C# `SortedList<K, V>` требует, чтобы все элементы в коллекции имели одинаковые типы ключей `K` и значений `V`. Дублирующиеся ключи не допускаются, что гарантирует уникальность каждой пары ключ/значение.
 
 ```csharp
 using System;
@@ -2548,12 +2549,12 @@ namespace SampleSortedList
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2
 
-### BitArray
+## Битовый массив
 
-A bit array is a collection of bits. The value of a bit can be either 0 (off/false) or 1 (on/true). Bit arrays compactly store bits. Most commonly, they are used to represent a simple group of boolean flags or an ordered sequence of boolean values.
+Битовый массив - это коллекция битов. Значение бита может быть либо 0 (выключено/ложь), либо 1 (включено/истина). Битовые массивы компактно хранят биты. Чаще всего они используются для представления простой группы флагов булевого типа или упорядоченной последовательности булевых значений.
 
 ```csharp
 using System;
@@ -2599,18 +2600,18 @@ namespace SampleBitArray
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.bitarray
 
-### Stack
+## Стек
 
-A stack is a Last In, First Out (LIFO) collection of elements where the last element that goes into the stack will be the first element that comes out.
+Стек - это коллекция элементов "последний вошел, первый вышел" (LIFO), в которой последний элемент, который входит в стек, будет первым элементом, который выйдет из него.
 
-Inserting an element onto a stack is called pushing. Deleting an element from a stack is called popping. Pushing and popping can be performed only at the top of the stack.
+Вставка элемента в стек называется "толкать". Удаление элемента из стека называется "выталкивать". Вставку и удаление можно выполнять только на вершине стека.
 
-Stacks can be used to create undo-redo functionalities, parsing expressions (infix to postfix/prefix conversion), and much more.
+Стеки могут использоваться для создания функциональности отмены/восстановления, разбора выражений (преобразование из infix в postfix/prefix), а также для гораздо большего.
 
-The C# generic collection ```Stack<T>``` class requires all elements to be of the same type ```T```.
+Обобщенный класс коллекции C# `Stack<T>` требует, чтобы все элементы в стеке были одного типа `T`.
 
 ```csharp
 using System;
@@ -2649,16 +2650,18 @@ namespace SampleStack
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1
 
-### Queue
+## Очередь
 
-A queue is a First In, First Out (FIFO) collection of elements where the first element that goes into a queue is also the first element that comes out.
+Очередь - это коллекция элементов "первый вошел, первый вышел" (FIFO), в которой первый элемент, который входит в очередь, будет первым элементом, который выйдет из нее.
 
-Inserting an element into a queue is referred to as Enqueue. Deleting an element from a queue is referred to as Dequeue. Queues are used whenever we need to manage objects in order starting with the first one in.
+Вставка элемента в очередь называется "записать". Удаление элемента из очереди называется "удалить". Запись и удаление выполняются только на вершине очереди.
 
-The C# generic collection ```Queue<T>``` class requires that all elements be of the same type ```T```.
+Очереди используются всякий раз, когда нам необходимо управлять объектами в порядке их появления, начиная с первого.
+
+Обобщенный класс коллекции C# `Queue<T>` требует, чтобы все элементы в очереди были одного типа `T`.
 
 ```csharp
 using System;
@@ -2696,14 +2699,14 @@ namespace SampleQueue
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1
 
-### Dictionary
+## Словарь
 
-A dictionary is a collection of unique key/value pairs where a key is used to access the corresponding value. Dictionaries are used in database indexing, cache implementations, and so on.
+Словарь - это коллекция уникальных пар ключ/значение, где ключ используется для доступа к соответствующему значению. Словари используются в индексировании баз данных, реализации кэша и т.д.
 
-The C# generic collection ```Dictionary<K, V>``` class requires all key/value pairs be of the same type ```K```, ```V```. Duplicate keys are not permitted to ensure that every key/value pair is unique.
+Обобщенный класс коллекции C# `Dictionary<K, V>` требует, чтобы все элементы в словаре имели одинаковые типы ключей `K` и значений `V`. Дублирующиеся ключи не допускаются, что гарантирует уникальность каждой пары ключ/значение.
 
 ```csharp
 using System;
@@ -2734,18 +2737,18 @@ namespace SampleDictionary
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2
 
-### HashSet
+## Хэш-набор
 
-A hash set is a set of unique values where duplicates are not allowed.
+Хэш-набор - это множество уникальных значений, в котором дубликаты не допускаются.
 
-C# includes the ```HashSet<T>``` class in the generic collections namespace. All ```HashSet<T>``` elements are required to be of the same type ```T```.
+В C# есть класс `HashSet<T>`, определенный в пространстве имен `System.Collections.Generic`, где `T` - это параметр типа. Все элементы в `HashSet<T>` должны быть одного и того же типа `T`.
 
-Hash sets are different from other collections because they are simply a set of values. They do not have index positions and elements cannot be ordered.
+Хэш-набор отличаются от других коллекций тем, что они представляют собой просто множество значений. У них нет индексных позиций, и элементы не могут быть упорядочены.
 
-The ```HashSet<T>``` class provides high-performance set operations. HashSets allow fast lookup, addition, and removal of items, and can be used to implement either dynamic sets of items or lookup tables that allow finding an item by its key.
+Класс `HashSet<T>` предоставляет высокопроизводительные операции множества. Хэш-наборы позволяют быстро выполнять поиск, добавление и удаление элементов, и могут использоваться для реализации динамических множеств элементов или таблиц поиска, которые позволяют находить элемент по его ключу.
 
 ```csharp
 using System;
@@ -2780,16 +2783,16 @@ namespace SampleHashSet
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
 ---
 
-## Constants
+## Константы
 
-### The ```const``` Keyword
+### Ключевое слово "const"
 
-A variable in C# can be made into a compile-time constant by adding the ```const``` keyword before the data type. This modifier means that the variable cannot be changed and it must therefore be assigned a value at the same time as it is declared. Any attempts to assign a new value to the constant will result in a compile-time error.
+Переменную в C# можно сделать компиляционной константой, добавив ключевое слово "const" перед типом данных. Этот модификатор означает, что переменная не может быть изменена и ее значение должно быть присвоено одновременно с ее объявлением. Любые попытки присвоить переменной новое значение приведут к ошибке компиляции.
 
 ```csharp
 static void Main(string[] args)
@@ -2798,19 +2801,20 @@ static void Main(string[] args)
 }
 ```
 
-**Note:** Constant fields cannot have the static modifier. They are implicitly static and are accessed in the same way as static fields.
+## Примечание:
+Константные поля не могут иметь модификатор `static`. Они по умолчанию являются статическими и к ним обращаются так же, как и к статическим полям.
 
-### The ```readonly``` Keyword
+### Ключевое слово "readonly"
 
-Another variable modifier similar to ```const``` is ```readonly```. It creates a runtime constant. This modifier can be applied to fields, and like ```const```, it makes the field unchangeable.
+Еще одно ключевое слово, аналогичное `const`, - это `readonly`. Оно создает константу времени выполнения. Этот модификатор может применяться к полям, и, как и `const`, он делает поле неизменяемым.
 
-**Note 1:** Unlike const, ```readonly``` can be applied to any data type.
+**Примечание 1:** В отличие от `const`, `readonly` может применяться к любому типу данных.
 
-**Note 2:** a ```readonly``` field cannot only be initialized when it is declared. It can also be assigned a value in the constructor.
+**Примечание 2:** `readonly` поле может быть инициализировано только один раз, либо при его объявлении, либо в конструкторе.
 
-**Note 3:** Since a ```readonly``` field is assigned at runtime, it can be assigned a dynamic value that is not known until runtime.
+**Примечание 3:** Поскольку `readonly` поле инициализируется во время выполнения, ему может быть присвоено динамическое значение, которое неизвестно до момента выполнения.
 
-**Note 4:** You can also mark a method’s return value as ```readonly``` when returning a value type by reference with the ```ref``` modifier. This will disallow the caller from modifying the returned value, provided that the returned value is also assigned as a readonly reference and not just a copy.
+**Примечание 4:** Вы также можете пометить возвращаемое значение метода как `readonly`, когда возвращается значение типа ссылка на значение, используя модификатор `ref`. Это предотвратит изменение возвращаемого значения вызывающим методом, при условии, что возвращаемое значение также было присвоено как `readonly` ссылка, а не просто копия.
 
 ```csharp
 class MyClass
@@ -2829,17 +2833,17 @@ class MyClass
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const
 
 ---
 
-## Asynchronous Methods
+## Асинхронные методы
 
-An asynchronous method is a method that can **return** before it has finished executing. Any method that performs a potentially long-running task, such as accessing a web resource or reading a file, can be made asynchronous to improve the responsiveness of the program.
+Асинхронный метод — это метод, который может **вернуть** до того, как он закончит выполнение. Любой метод, который выполняет потенциально длительную задачу, такую как доступ к веб-ресурсу или чтение файла, может быть сделан асинхронным для улучшения отзывчивости программы.
 
-The ```async``` and ```await``` keywords allow asynchronous methods to be written with a simple structure that is similar to synchronous (regular) methods. The ```async``` modifier specifies that the method is asynchronous and that it can therefore contain one or more ```await``` expressions. An ```await``` expression consists of the ```await``` keyword followed by an awaitable method call.
+Ключевые слова `async` и `await` позволяют писать асинхронные методы с простой структурой, которая похожа на синхронные (обычные) методы. Ключевое слово `async` указывает, что метод асинхронный и может содержать одно или несколько выражений `await`. Выражение `await` состоит из ключевого слова `await`, за которым следует вызываемый асинхронный метод.
 
 ```csharp
 class MyApp
@@ -2862,24 +2866,24 @@ static void Main(string[] args)
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/async
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
 
 ---
 
-## Working With Files
+## Работа с файлами
 
-The System.IO namespace has various classes that are used for performing numerous operations with files, such as creating and deleting files, reading from or writing to a file, closing a file, and more. The File class is one of them.
+Пространство имен `System.IO` содержит различные классы, которые используются для выполнения множества операций с файлами, таких как создание и удаление файлов, чтение из или запись в файл, закрытие файла и т.д. Класс `File` является одним из них.
 
-Popular methods of the File class:
+Популярные методы класса `File`:
 
-- **AppendAllText()** : Appends text to the end of the file.
-- **Create()**        : Creates a file in the specified location.
-- **Delete()**        : Deletes the specified file.
-- **Exists()**        : Determines whether the specified file exists.
-- **Copy()**          : Copies a file to a new location.
-- **Move()**          : Moves a specified file to a new location
+- **AppendAllText()** : Добавляет текст в конец файла.
+- **Create()**        : Создает файл в указанном месте.
+- **Delete()**        : Удаляет указанный файл.
+- **Exists()**        : Определяет, существует ли указанный файл.
+- **Copy()**          : Копирует файл в новое место.
+- **Move()**          : Перемещает указанный файл в новое место.
 
 ```csharp
 using System;
@@ -2901,14 +2905,14 @@ namespace Example
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/api/system.io.file
 
 ---
 
-## Language-Integrated Query (LINQ)
+## Встроенный язык запросов (LINQ)
 
-Language-Integrated Query (LINQ) is the name for a set of technologies based on the integration of query capabilities directly into the C# language. Traditionally, queries against data are expressed as simple strings without type checking at compile time or IntelliSense support.
+Встроенный язык запросов (LINQ) — это название для набора технологий, основанных на интеграции возможностей запросов непосредственно в язык C#. Традиционно запросы против данных выражаются в виде простых строк без проверки типов на этапе компиляции или поддержки IntelliSense.
 
 ```csharp
 class LINQQueryExpressions
@@ -2934,42 +2938,42 @@ class LINQQueryExpressions
 // Output: 97 92 81
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/linq/
 https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/working-with-linq
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 
 ---
 
-## Attributes
+## Атрибуты
 
-An attribute is a declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, assemblies etc. in your program. You can add declarative information to a program by using an attribute. A declarative tag is depicted by square ([ ]) brackets placed above the element it is used for.
+Атрибут — это декларативный тег, который используется для передачи информации о поведении различных элементов, таких как классы, методы, структуры, перечисления, сборки и т.д., в вашу программу. Вы можете добавлять декларативную информацию в программу, используя атрибут. Декларативный тег представлен квадратными скобками, расположенными над элементом, для которого он используется.
 
-Attributes are used for adding metadata, such as compiler instruction and other information such as comments, description, methods and classes to a program.
+Атрибуты используются для добавления метаданных, таких как инструкции компилятора и другая информация, такая как комментарии, описания, методы и классы, в программу.
 
-There are two types of Attributes implementations provided by the .NET Framework are:
+В .NET Framework предоставляются две реализации атрибутов:
 
-- Predefined Attributes
-- Custom Attributes
+- Предустановленные атрибуты
+- Пользовательские атрибуты
 
-### Predefined Attributes
+### Предустановленные атрибуты
 
-Predefined attributes are those attributes that are a part of the .NET Framework Class Library and are supported by the C# compiler for a specific purpose.
+Предустановленные атрибуты — это атрибуты, которые являются частью библиотеки классов .NET Framework и поддерживаются компилятором C# для определенной цели.
 
-A few popular predefined attributes that are derived from the ```System.Attribute``` base class are given as follows:
+Некоторые популярные предустановленные атрибуты, производные от базового класса `System.Attribute`, включают в себя:
 
-| Attribute                   | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| AttributeUsageAttribute     | Specifies the usage of a different attribute.                |
-| CLSCompliantAttribute       | Shows if a particular code element complies with the Common Language Specification |
-| ContextStaticAttribute      | Indicates if a static field value is unique for the specified context |
-| FlagsAttribute              | Indicates if a static field value is unique for the specified context |
-| LoaderOptimizationAttribute | Sets the optimization policy for the default loader in the main method |
-| NonSerializedAttribute      | Signifies that the field of the serializable class should not be serialized |
-| ObsoleteAttribute           | Marks the code elements that are obsolete i.e. not in use anymore |
-| SerializableAttribute       | Signifies that the field of the serializable class can be serialized |
-| ThreadStaticAttribute       | Indicates that there is a unique static field value for each thread |
-| DllImportAttribute          | Indicates that the method is a static entry point as shown by the unmanaged DLL |
+| Атрибут              | Описание                                                       |
+| ------------------- | -------------------------------------------------------------- |
+| AttributeUsageAttribute | Указывает использование другого атрибута.                      |
+| CLSCompliantAttribute  | Показывает, что данный код элемент соответствует спецификации языка C#. |
+| ContextStaticAttribute | Указывает, что значение статического поля уникально для указанного контекста. |
+| FlagsAttribute       | Указывает, что значение статического поля уникально для указанного контекста. |
+| LoaderOptimizationAttribute | Устанавливает политику оптимизации для основного метода по умолчанию. |
+| NonSerializedAttribute | Указывает, что поле сериализуемого класса не должно быть сериализовано. |
+| ObsoleteAttribute     | Маркирует код элементы, которые устарели и больше не используются. |
+| SerializableAttribute  | Указывает, что поле сериализуемого класса может быть сериализовано. |
+| ThreadStaticAttribute | Указывает, что значение статического поля уникально для каждого потока. |
+| DllImportAttribute     | Указывает, что метод является статической точкой входа в необработанный DLL. |
 
 ```csharp
 // C# program to demonstrate CLSCompliantAttribute giving a warning message
@@ -2992,9 +2996,9 @@ class GFG2
 }
 ```
 
-### Custom Attributes
+## Пользовательские атрибуты
 
-Custom attributes can be created in C# for attaching declarative information to methods, assemblies, properties, types, etc. in any way required. This increases the extensibility of the .NET framework.
+Пользовательские атрибуты могут быть созданы в C# для прикрепления декларативной информации к методам, сборкам, свойствам, типам и т.д. любым необходимым способом. Это увеличивает расширяемость .NET Framework.
 
 ```csharp
 // C# program to demonstrate Custom Attributes
@@ -3040,20 +3044,20 @@ public class GFG
 }
 ```
 
-**Learn More:**
+**Узнать больше:**
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
 
 ---
 
-## References
+## Ссылки
 
-**Official C# Documentation:**
+**Официальная C# документация:**
 https://docs.microsoft.com/en-us/dotnet/csharp/
 
-**Official C# Language Reference:**
+**Официальная ссылка на язык C#:**
 https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/
 
-**Official Unity User Manual:**
+**Официальное руководство пользователя Unity:**
 https://docs.unity3d.com/Manual/index.html
 
 ---
