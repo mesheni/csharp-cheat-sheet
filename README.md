@@ -1,140 +1,155 @@
 # Шпаргалка по C# - ConstructG.com (перевод на русский: mesheni)
 
-**Версия:** 1.0.1
+**Версия:** 2.0.0
 
-**Версия фреймворка:** .NET Core 3.1.9 или новее.
+**Версия фреймворка:** .NET 10 (LTS) или новее.
 
-**Версия языка:** С# 8.0 или более поздняя версия.
+**Версия языка:** С# 14 или более поздняя версия.
 
 ## Оглавление
 
 - [C# Шпаргалка](#)
-  - [О шпаргалке](#about)
-  - [Введение в С#](#Введение-в-С#)
-    - [Что такое С#?](#what-is-c)
-    - [Для чего используется C#?](#what-is-c-used-for)
-  - [Ключевые слова С#](#c-keywords)
-    - [Зарезервированные ключевые слова](#reserved-keywords)
-    - [Контекстные ключевые слова](#contextual-keywords)
-  - [Специальные символы C#](#c-special-characters)
-  - [Директивы препроцессора C#](#c-preprocessor-directives)
-  - [Общий синтаксис](#general-syntax)
-  - [Комментарии](#comments)
-  - [Консольное приложение C# Hello World](#c-hello-world-console-application)
-  - [Переменные С#](#c-variables)
-  - [Соглашения об именах C#](#c-naming-conventions)
-    - [Терминология](#terminology)
-    - [Таблица результатов](#summary-table)
-  - [Типы данных C#](#c-data-types)
-    - [Значимые типы](#value-types)
-      - [Простые типы данных](#simple-data-types)
-        - [Байты](#bytes)
-        - [Беззнаковые целые числа](#unsigned-integers)
-        - [Целые числа со знаком](#signed-integers)
-        - [Типы с плавающей запятой](#floating-point-types)
-        - [Символы Юникода](#unicode-characters)
-        - [Логические](#booleans)
-      - [Типы перечислений](#enum-types)
-      - [Типы структур](#structure-types)
-      - [Типы кортежей](#tuple-types)
-      - [Значимые типы, допускающие значение NULL](#nullable-value-types)
-    - [Ссылочные типы](#reference-types)
-      - [Встроенные ссылочные типы](#built-in-reference-types)
-        - [Типы объектов](#object-types)
-        - [Типы строк](#string-types)
-        - [Типы делегатов](#delegate-types)
-      - [Типы интерфейсов](#interface-types)
-      - [Ссылочные типы, допускающие значение NULL](#nullable-reference-types)
-      - [Типы массивов](#array-types)
-        - [Массив простых типов](#array-of-simple-types)
-        - [Зубчатые массивы](#jagged-arrays)
-        - [Свойства и методы массива](#array-properties--methods)
-  - [Приведение типов](#type-casting)
-    - [Неявное приведение типов](#implicit-casting)
-    - [Явное приведение типов](#explicit-casting)
-    - [Методы преобразования типов](#type-conversion-methods)
-  - [Операторы](#operators)
-    - [Арифметические операторы](#arithmetic-operators)
-    - [Комбинированные операторы присваивания](#combined-assignment-operators)
-    - [Операторы инкремента и декремента](#increment-and-decrement-operators)
-    - [Операторы сравнения](#comparison-operators)
-    - [Логические операторы](#logical-operators)
-    - [Побитовые операторы](#bitwise-operators)
-    - [Прецеденты операторов](#operator-precedents)
-  - [Синтаксические конструкции](#statements)
-    - [Условия](#conditions)
+  - [Оглавление](#оглавление)
+  - [О шпаргалке](#о-шпаргалке)
+  - [Введение в С#](#введение-в-с)
+    - [Что такое С#?](#что-такое-с)
+    - [Для чего используется C#?](#для-чего-используется-c)
+  - [Ключевые слова С#](#ключевые-слова-с)
+    - [Зарезервированные ключевые слова](#зарезервированные-ключевые-слова)
+    - [Контекстные ключевые слова](#контекстные-ключевые-слова)
+  - [Специальные символы C#](#специальные-символы-c)
+  - [Директивы препроцессора C#](#директивы-препроцессора-c)
+  - [Общий синтаксис](#общий-синтаксис)
+  - [Комментарии](#комментарии)
+  - [Консольное приложение "Hello World"](#консольное-приложение-hello-world)
+  - [Переменные С#](#переменные-с)
+  - [Соглашения об именах C#](#соглашения-об-именах-c)
+    - [Терминология](#терминология)
+    - [Таблица результатов](#таблица-результатов)
+  - [Типы данных C#](#типы-данных-c)
+    - [Типы значений](#типы-значений)
+      - [Простые типы данных](#простые-типы-данных)
+        - [Байты](#байты)
+        - [Беззнаковые целые числа](#беззнаковые-целые-числа)
+        - [Целые числа со знаком](#целые-числа-со-знаком)
+        - [Типы с плавающей запятой](#типы-с-плавающей-запятой)
+        - [Символы Юникода](#символы-юникода)
+        - [Логические](#логические)
+      - [Типы перечислений](#типы-перечислений)
+      - [Типы структур](#типы-структур)
+      - [Типы кортежей](#типы-кортежей)
+      - [Типы значений, допускающие значение NULL](#типы-значений-допускающие-значение-null)
+    - [Ссылочные типы](#ссылочные-типы)
+      - [Встроенные ссылочные типы](#встроенные-ссылочные-типы)
+        - [Типы объектов](#типы-объектов)
+        - [Типы строк](#типы-строк)
+        - [Типы делегатов](#типы-делегатов)
+      - [Типы интерфейсов](#типы-интерфейсов)
+      - [Типы ссылок, допускающие значение NULL](#типы-ссылок-допускающие-значение-null)
+        - [Типы записей (records)](#типы-записей-records)
+      - [Типы массивов](#типы-массивов)
+        - [Массив простых типов](#массив-простых-типов)
+        - [Зубчатые массивы](#зубчатые-массивы)
+        - [Индексы и диапазоны (C# 8)](#индексы-и-диапазоны-c-8)
+        - [Свойства и методы массива](#свойства-и-методы-массива)
+  - [Приведение типов](#приведение-типов)
+    - [Неявное приведение](#неявное-приведение)
+    - [Явное приведение типов](#явное-приведение-типов)
+    - [Методы преобразования типов](#методы-преобразования-типов)
+  - [Операторы](#операторы)
+    - [Арифметические операторы](#арифметические-операторы)
+    - [Комбинированные операторы присваивания](#комбинированные-операторы-присваивания)
+    - [Операторы инкремента и декремента](#операторы-инкремента-и-декремента)
+    - [Операторы сравнения](#операторы-сравнения)
+    - [Логические операторы](#логические-операторы)
+    - [Null-объединяющие операторы](#null-объединяющие-операторы)
+    - [Условные null-операторы](#условные-null-операторы)
+    - [Побитовые операторы](#побитовые-операторы)
+    - [Прецеденты операторов](#прецеденты-операторов)
+  - [Конструкции](#конструкции)
+    - [Условия](#условия)
       - [**```if```**...**```else if```**...**```else```**](#ifelse-ifelse)
-      - [**```switch```**](#switch-case)
-    - [Циклы](#loops)
-      - [Цикл **```while```**](#while-loop)
-      - [Цикл **```do```**...**```while```**](#dowhile-loop)
-      - [Цикл **```for```**](#for-loop)
-      - [Цикл **```foreach```**](#foreach-loop)
-    - [Конструкция **```goto```**](#goto-statement)
-    - [Конструкция **```return```**](#return-statement)
-    - [Конструкция **```yield```**](#yield-statement)
-    - [Конструкция **```checked```** и **```unchecked```**](#checked-and-unchecked-statements)
-    - [Конструкция **```lock```**](#lock-statement)
-    - [Конструкция **```using```**](#using-statement)
-    - [Обработка исключений](#exception-handling)
-  - [Классы и объекты](#classes--objects)
-    - [Члены](#members)
-    - [Конструкторы](#constructors)
-    - [Ключевое слово ```this```](#the-this-keyword)
-    - [Сборщик мусора](#garbage-collector)
-    - [Деструкторы/Финализаторы](#destructors--finalizers)
-  - [Объектно-ориентированное программирование (ООП)](#object-oriented-programming-oop)
-    - [Инкапсуляция/уровни доступа](#encapsulation--access-levels)
-    - [Наследование](#inheritance)
-    - [Полиморфизм/переопределение членов](#polymorphism--redefining-members)
-    - [Модификатор static](#static)
-    - [Свойства](#properties)
-    - [Индексаторы](#indexers)
-    - [Абстракция](#abstraction)
-      - [Абстрактные классы и методы](#abstract-classes--methods)
-      - [Интерфейсы](#interfaces)
-    - [Пространства имен](#namespaces)
-    - [Перегрузка операторов](#operator-overloading)
-  - [Делегаты](#delegates)
-    - [Анонимные методы](#anonymous-methods)
-    - [Лямбда-выражения](#lambda-expressions)
-  - [События](#events)
-  - [Обобщения](#generics)
-  - [Обобщенные коллекции](#generic-collections)
-    - [List](#list)
-    - [SortedList](#sortedlist)
-    - [BitArray](#bitarray)
-    - [Stack](#stack)
-    - [Queue](#queue)
-    - [Dictionary](#dictionary)
-    - [HashSet](#hashset)
-  - [Константы](#constants)
-    - [Ключевое слово ```const```](#the-const-keyword)
-    - [Ключевое слово ```readonly```](#the-readonly-keyword)
-  - [Асинхронные методы](#asynchronous-methods)
-  - [Работа с файлами](#working-with-files)
-  - [Интегрированный язык запросов (LINQ)](#language-integrated-query-linq)
-  - [Атрибуты](#attributes)
-    - [Предопределенные атрибуты](#predefined-attributes)
-    - [Пользовательские атрибуты](#custom-attributes)
-  - [Полезные ссылки](#references)
-  - [Титры](#credits)
+      - [**```switch```** Case](#switch-case)
+      - [**```switch```** выражение (C# 8)](#switch-выражение-c-8)
+    - [Циклы](#циклы)
+      - [Цикл **```while```**](#цикл-while)
+      - [Цикл **```do```**...**```while```**](#цикл-dowhile)
+      - [Цикл **```for```**](#цикл-for)
+      - [Цикл **```foreach```**](#цикл-foreach)
+    - [Оператор безусловного перехода **```goto```**](#оператор-безусловного-перехода-goto)
+    - [Оператор **```return```**](#оператор-return)
+    - [Оператор **```yield```**](#оператор-yield)
+    - [Операторы **```checked```** and **```unchecked```**](#операторы-checked-and-unchecked)
+    - [Оператор **```lock```**](#оператор-lock)
+    - [Оператор **```using```**](#оператор-using)
+    - [Обработка исключений](#обработка-исключений)
+  - [Сопоставление с образцом (Pattern Matching)](#сопоставление-с-образцом-pattern-matching)
+  - [Классы и объекты](#классы-и-объекты)
+    - [Члены](#члены)
+    - [Конструкторы](#конструкторы)
+    - [Ключевое слово ```this```](#ключевое-слово-this)
+    - [Сборщик мусора](#сборщик-мусора)
+    - [Деструкторы / Финализаторы](#деструкторы--финализаторы)
+  - [Записи (Records)](#записи-records)
+  - [Объектно-ориентированное программирование (ООП)](#объектно-ориентированное-программирование-ооп)
+  - [Инкапсуляция / Уровни доступа](#инкапсуляция--уровни-доступа)
+  - [Наследование](#наследование)
+  - [Полиморфизм / Изменение членов](#полиморфизм--изменение-членов)
+  - [Свойство Static](#свойство-static)
+  - [Свойства](#свойства)
+  - [Индексаторы](#индексаторы)
+  - [Абстракция](#абстракция)
+      - [Абстрактные классы и методы](#абстрактные-классы-и-методы)
+  - [Интерфейсы](#интерфейсы)
+    - [Пространства имен (Namespaces)](#пространства-имен-namespaces)
+  - [Перегрузка операторов](#перегрузка-операторов)
+  - [Методы расширения](#методы-расширения)
+  - [Делегаты](#делегаты)
+  - [Встроенные делегаты](#встроенные-делегаты)
+  - [Анонимные методы](#анонимные-методы)
+  - [Выражения лямбда](#выражения-лямбда)
+  - [События](#события)
+    - [Примечания:](#примечания)
+  - [Обобщенные типы](#обобщенные-типы)
+  - [Обобщенные коллекции](#обобщенные-коллекции)
+  - [Выражения коллекций (C# 12)](#выражения-коллекций-c-12)
+  - [params-коллекции (C# 13)](#params-коллекции-c-13)
+  - [Список](#список)
+  - [Отсортированный список](#отсортированный-список)
+  - [Битовый массив](#битовый-массив)
+  - [Стек](#стек)
+  - [Очередь](#очередь)
+  - [Словарь](#словарь)
+  - [Хэш-набор](#хэш-набор)
+  - [Константы](#константы)
+    - [Ключевое слово "const"](#ключевое-слово-const)
+    - [Ключевое слово "readonly"](#ключевое-слово-readonly)
+  - [Асинхронные методы](#асинхронные-методы)
+  - [Работа с файлами](#работа-с-файлами)
+  - [Встроенный язык запросов (LINQ)](#встроенный-язык-запросов-linq)
+  - [Атрибуты](#атрибуты)
+    - [Предустановленные атрибуты](#предустановленные-атрибуты)
+  - [Пользовательские атрибуты](#пользовательские-атрибуты)
+  - [Что нового в C# 9–14](#что-нового-в-c-914)
+  - [Ссылки](#ссылки)
+  - [Создатели шпаргалки](#создатели-шпаргалки)
 
 ---
 
-## О шпаргалке {#about}
+## О шпаргалке
 
 - Цель этой шпаргалки по C# — предоставить общие сведения о синтаксисе языка.
 - HTML-версия этого документа размещена по адресу: https://constructg.com/csharp-cheat-sheet/
 - Файл .md этой шпаргалки (оригинальная английская версия) размещен на [GitHub](https://github.com/LabinatorSolutions/csharp-cheat-sheet).
 - Контрибуты, исправления багов, дополнения, и улучшения будут высоко оценены.
+- Актуализировано до C# 14 / .NET 10 (сентябрь 2026): добавлены возможности C# 9–14, новые разделы (сопоставление с образцом, записи, методы расширения), исправлена структура и ссылки.
 - Подготовлен [ConstructG.com](https://constructg.com/). Construct G — это онлайн-академия разработки игр.
 
 ## Введение в С#
 
 ### Что такое С#?
 
-C# произносится как «Си-Шарп». Это объектно-ориентированный язык программирования, созданный Microsoft и работающий на .NET Framework. C# имеет корни из семейства C и близок к другим популярным языкам, таким как C++ и Java.
+C# произносится как «Си-Шарп». Это объектно-ориентированный язык программирования, созданный Microsoft и работающий на .NET — кроссплатформенной среде выполнения, которая поддерживает Windows, Linux, macOS, мобильные и веб-платформы. C# имеет корни из семейства C и близок к другим популярным языкам, таким как C++ и Java. Новая версия языка выпускается ежегодно вместе с новой версией .NET (на момент актуализации — C# 14 / .NET 10).
 
 ### Для чего используется C#?
 
@@ -149,7 +164,7 @@ C# произносится как «Си-Шарп». Это объектно-о
 
 **Для справки:**
 https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
-https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
+https://learn.microsoft.com/en-us/dotnet/csharp/getting-started/
 
 ---
 
@@ -163,7 +178,8 @@ https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 - as
 - base
 - bool
-- breakbyte
+- break
+- byte
 - case
 - catch
 - char
@@ -242,6 +258,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 
 - add
 - alias
+- and (логический шаблон)
 - ascending
 - async
 - await
@@ -249,20 +266,31 @@ https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 - descending
 - dynamic
 - equals
+- extension (блок членов расширения)
+- field (синтезируемое поле свойства)
+- file (тип, локальный для файла)
 - from
 - get
 - global
 - group
+- init (метод доступа свойства)
 - into
 - join
 - let
 - nameof
+- nint (нативное целое)
+- not (логический шаблон)
 - notnull
+- nuint (нативное целое без знака)
 - on
+- or (логический шаблон)
 - orderby
 - partial (метод)
 - partial (тип)
+- record (запись)
 - remove
+- required (обязательные члены)
+- scoped (ограничение области ref)
 - select
 - set
 - unmanaged (ограничение общего типа)
@@ -271,10 +299,11 @@ https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/
 - when (состояние фильтра)
 - where (ограничение общего типа)
 - where (пункт запроса LINQ)
+- with (неразрушающее изменение)
 - yield
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
 
 ---
 
@@ -282,11 +311,14 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
 
 Специальные символы — это предопределенные контекстные символы, которые изменяют элемент программы (литеральную строку, идентификатор или имя атрибута), к которому они добавляются. C# поддерживает следующие специальные символы:
 
-- **@**, символ дословного идентификатора.
+- **@**, символ дословного идентификатора и дословной строки.
 - **$**, интерполированный строковый символ.
+- **```?.```** и **```?[]```**, условные null-операторы доступа к члену и индексатору.
+- **```..```**, оператор диапазона и элемент распространения (spread) в выражениях коллекций.
+- **```^```**, оператор «индекс с конца».
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
 
 ---
 
@@ -313,7 +345,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/
 - \#pragma checksum: добавляет контрольную сумму в сборку для проверки целостности.
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives/
 
 ---
 
@@ -346,6 +378,8 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-d
 
 ## Консольное приложение "Hello World"
 
+Классический вариант с явным классом и методом `Main`:
+
 ```csharp
 class Hello
 {
@@ -354,6 +388,12 @@ class Hello
         System.Console.WriteLine("Hello World!");
     }
 }
+```
+
+Начиная с C# 9, тело программы можно писать без класса и метода `Main` — так называемые **инструкции верхнего уровня** (top-level statements). Именно такой шаблон по умолчанию создает команда `dotnet new console`:
+
+```csharp
+System.Console.WriteLine("Hello World!");
 ```
 
 **Примечание:** Исходные файлы C# обычно имеют расширение файла **.cs**
@@ -375,8 +415,15 @@ class Hello
 - Имя переменной должно быть описательным и отражать ее назначение.
 - Имя переменной должно быть уникальным в пределах области видимости, в которой она определена.
 
+Начиная с C# 9, если тип создаваемого объекта уже известен из объявления, имя типа в выражении `new` можно опустить (target-typed new):
+
+```csharp
+List<string> names = new();         // вместо new List<string>()
+int[] numbers = new[] { 1, 2, 3 };
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables
 
 ---
 
@@ -406,7 +453,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-speci
 | Parameter       | lowerCamelCase  |
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
 https://google.github.io/styleguide/csharp-style.html
 https://www.dofactory.com/reference/csharp-coding-standards
 
@@ -417,12 +464,12 @@ https://www.dofactory.com/reference/csharp-coding-standards
 ### Типы значений
 
 **Для справки:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types
 
 #### Простые типы данных
 
 **Для справки:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 
 ##### Байты
 
@@ -458,7 +505,7 @@ decimal myDecimal = 3.14M; // Размер: 128 bits | Диапазон: 28-29 d
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
 
 ##### Символы Юникода
 
@@ -517,7 +564,7 @@ class Test
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 
 #### Типы структур
 
@@ -538,7 +585,7 @@ struct Point
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 
 #### Типы кортежей
 
@@ -553,7 +600,7 @@ Console.WriteLine($"Сумма {t2.Count} элементов равна {t2.Sum}
 ```
 
 **Learn More:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 
 #### Типы значений, допускающие значение NULL
 
@@ -574,7 +621,7 @@ else
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
 ### Ссылочные типы
 
@@ -628,6 +675,16 @@ Console.WriteLine(path == verbatimPath);  // => true
 string bazString = @"Here's some stuff
 on a new line! ""Wow!"", the masses cried";
 
+// Raw string literals (C# 11): тройные кавычки, внутри не нужно экранировать ни " , ни \
+// Удобно для JSON, XML, регулярных выражений и многострочного текста.
+string json = """
+    {
+        "name": "Jane",
+        "age": 30
+    }
+    """;
+Console.WriteLine(json);
+
 // Популярные строковые методы и свойства
 string myText = "some text";
 
@@ -650,7 +707,7 @@ Console.WriteLine(myText); // Outputs "re"
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/
 
 ##### Типы делегатов
 
@@ -706,7 +763,7 @@ class Test
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
 #### Типы интерфейсов
 
@@ -732,8 +789,8 @@ static void Main(string[] args)
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
 #### Типы ссылок, допускающие значение NULL
 
@@ -745,7 +802,11 @@ string? nullable = default;
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types
+
+##### Типы записей (records)
+
+Для неизменяемых структур данных с равенством по значению вместо класса используйте **записи** (C# 9) — см. раздел [«Записи (Records)»](#записи-records).
 
 #### Типы массивов
 
@@ -792,6 +853,16 @@ int[][] anotherJaggedArray = new int[][] // Другой способ объяв
 
 int x = anotherJaggedArray[2][1];
 Console.WriteLine(x); // Вывод => 42
+```
+
+##### Индексы и диапазоны (C# 8)
+
+```csharp
+int[] numbers = { 0, 1, 2, 3, 4, 5 };
+
+int last = numbers[^1];        // 5 — оператор ^ означает «индекс с конца»
+int[] slice = numbers[1..4];   // 1, 2, 3 — оператор .. выделяет диапазон
+int[] tail  = numbers[2..];    // 2, 3, 4, 5 — от индекса 2 до конца
 ```
 
 ##### Свойства и методы массива
@@ -852,9 +923,9 @@ public class Program
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/
-https://docs.microsoft.com/en-us/dotnet/api/system.array
-https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/
+https://learn.microsoft.com/en-us/dotnet/api/system.array
+https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable
 
 ---
 
@@ -929,7 +1000,7 @@ Console.WriteLine(Convert.ToString(myBool));   // преобразовать boo
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
 
 ---
 
@@ -1000,6 +1071,33 @@ myBool = !(true); // Логическое НЕ => (false)
 Console.WriteLine(myBool);
 ```
 
+### Null-объединяющие операторы
+
+```csharp
+string name = null;
+
+string displayName = name ?? "Гость"; // ?? возвращает правый операнд, если левый равен null => "Гость"
+
+int? count = null;
+count ??= 0; // ??= (C# 8) присваивает значение, только если левый операнд равен null => 0
+```
+
+### Условные null-операторы
+
+```csharp
+string text = null;
+
+int? length = text?.Length;    // ?. обращается к члену, только если объект не равен null => null
+text?.Trim();                  // вызов метода выполняется, только если text не равен null
+
+Customer customer = null;
+
+// Начиная с C# 14, ?. можно ставить слева от присваивания (null-conditional assignment):
+// правая часть вычисляется, только если customer не равен null.
+customer?.Order = GetCurrentOrder();
+customer?.Score += 10;         // составное присваивание тоже поддерживается
+```
+
 ### Побитовые операторы
 
 ```csharp
@@ -1056,8 +1154,9 @@ myInteger >>= 1; // сдвиг вправо (0b101 >> 1 = 0b10 = 2)
 - Логическое И                                &&
 - Логическое ИЛИ                              ||
                                               
+- Null-объединяющий                           ??
 - Тернарный                                   ? :
-- Назначение                                  =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
+- Назначение                                  =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=, ??=
 
 */
 ```
@@ -1074,7 +1173,7 @@ myInteger = (4 + 6) / 2; // => 5
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/
 
 ---
 
@@ -1139,6 +1238,24 @@ switch (month)
         monthString = "Some other month";
         break;
 }
+```
+
+#### **```switch```** выражение (C# 8)
+
+Современная альтернатива оператору `switch` — компактное **switch-выражение**, возвращающее значение. Поддерживает шаблоны (см. раздел «Сопоставление с образцом»), а `_` заменяет ветку `default`:
+
+```csharp
+int month = 3;
+
+string season = month switch
+{
+    12 or 1 or 2  => "Winter",
+    >= 3 and <= 5 => "Spring",
+    6 or 7 or 8   => "Summer",
+    >= 9 and <= 11 => "Autumn",
+    _             => "Unknown"
+};
+// season => "Spring"
 ```
 
 ### Циклы
@@ -1297,6 +1414,20 @@ class Account
 
 Этот код представляет класс `Account` с полем `balance`, представляющим баланс счета. Метод `Withdraw` выполняет снятие денег с учетом блокировки (`lock`), чтобы обеспечить потокобезопасность при изменении баланса. Если запрашиваемая сумма (`amount`) превышает текущий баланс, генерируется исключение `Exception` с сообщением "Insufficient funds". В противном случае запрашиваемая сумма вычитается из баланса.
 
+**Примечание:** Блокировать `this` или строки не рекомендуется. Начиная с C# 13, если целевым объектом `lock` является экземпляр `System.Threading.Lock`, компилятор использует более эффективную реализацию:
+
+```csharp
+private readonly Lock _balanceLock = new();
+
+public void Withdraw(decimal amount)
+{
+    lock (_balanceLock)
+    {
+        // ...
+    }
+}
+```
+
 ### Оператор **```using```**
 
 ```csharp
@@ -1312,6 +1443,17 @@ static void Main(string[] args)
 ```
 
 Этот код создает и использует объект `TextWriter` для записи строк в файл "test.txt". С помощью конструкции `using` обеспечивается автоматическое закрытие файла после завершения блока кода. В результате выполнения программы в файле "test.txt" будут записаны три строки: "Line one", "Line two" и "Line three".
+
+**Примечание:** Начиная с C# 8, доступно **объявление using** (using declaration) — без фигурных скобок. Ресурс освобождается автоматически в конце объемлющего блока:
+
+```csharp
+static void Main(string[] args)
+{
+    using TextWriter w = File.CreateText("test.txt");
+    w.WriteLine("Line one");
+    w.WriteLine("Line two");
+} // w.Dispose() вызывается здесь автоматически
+```
 
 ### Обработка исключений
 
@@ -1353,7 +1495,74 @@ static void Main(string[] args)
 Этот код на C# определяет функцию `Divide`, которая выполняет деление двух чисел, и в методе `Main` использует механизм обработки исключений для проверки ввода и обработки возможных ошибок. Если количество аргументов командной строки не равно двум, генерируется исключение с сообщением "Two numbers are required". Затем происходит парсинг аргументов в тип `double`, и если делитель (`y`) равен нулю, генерируется исключение `DivideByZeroException`. В блоке `finally` выводится сообщение "Terminating!", которое будет выполнено в любом случае, даже если произойдет исключение или не произойдет.
 
 **Learn More:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/statements
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/statements
+
+---
+
+## Сопоставление с образцом (Pattern Matching)
+
+**Сопоставление с образцом** — это механизм проверки того, обладает ли значение определенной формой, и извлечения данных из него. Оператор `is` проверяет значение на соответствие шаблону. Возможности расширялись поэтапно: шаблоны объявления и типов (C# 7), выражения `switch` и шаблоны свойств/позиционные шаблоны (C# 8), реляционные и логические шаблоны (C# 9), шаблоны списков (C# 11).
+
+```csharp
+using System;
+
+namespace PatternMatchingDemonstration
+{
+    public record Order(int Id, string Customer, decimal Total); // см. раздел «Записи»
+
+    class Program
+    {
+        // Реляционные и логические шаблоны (C# 9) в switch-выражении.
+        static string Classify(decimal total) => total switch
+        {
+            <= 0   => "Invalid",
+            < 100  => "Small",
+            < 1000 => "Medium",
+            _      => "Large"
+        };
+
+        static void Main(string[] args)
+        {
+            object obj = "Hello";
+
+            // Шаблон объявления (C# 7): проверка типа и приведение одним выражением.
+            if (obj is string s)
+            {
+                Console.WriteLine(s.Length); // 5
+            }
+
+            Console.WriteLine(Classify(250m)); // Medium
+
+            Order order = new Order(1, "Jane", 250m);
+
+            // Шаблон свойства (C# 8) с реляционным шаблоном внутри.
+            if (order is { Customer: "Jane", Total: > 100 })
+            {
+                Console.WriteLine("Jane spent more than 100");
+            }
+
+            // Позиционный шаблон (C# 8): деконструкция позиционной записи.
+            string description = order switch
+            {
+                (1, _, > 1000) => "Special order",
+                _              => $"Order {order.Id}"
+            };
+            Console.WriteLine(description); // Order 1
+
+            // Шаблон списка (C# 11).
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            Console.WriteLine(numbers is [1, .., 5]); // True
+        }
+    }
+}
+```
+
+**Примечание 1:** Классическая проверка на null записывается шаблоном: `if (e is not null) { ... }`.
+
+**Примечание 2:** Шаблоны можно комбинировать через `and`, `or`, `not` и скобки: `is (int or long) and > 0`.
+
+**Узнать больше:**
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns
 
 ---
 
@@ -1421,8 +1630,8 @@ namespace Example
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/objects
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/objects
 
 ### Члены
 
@@ -1449,6 +1658,16 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-str
 
 **Примечание:** При необходимости можно также цеплять и перегружать конструкторы.
 
+**Primary constructors (C# 12):** параметры можно объявить прямо в заголовке класса или структуры — они доступны в теле класса. Записи (records) используют этот синтаксис по умолчанию:
+
+```csharp
+class MyRectangle(int width, int height) // Primary constructor
+{
+    public int X = width;
+    public int Y = height;
+}
+```
+
 ```csharp
 class MyRectangle
 {
@@ -1468,7 +1687,7 @@ class MyRectangle
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors
 
 ### Ключевое слово ```this```
 
@@ -1488,11 +1707,11 @@ class MyRectangle
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
 
 ### Сборщик мусора
 
-В .NET Framework есть сборщик мусора, который периодически освобождает память, используемую объектами, когда они больше не доступны. Это освобождает программиста от часто утомительной и ошибочной задачи ручного управления памятью.
+В .NET есть сборщик мусора, который периодически освобождает память, используемую объектами, когда они больше не доступны. Это освобождает программиста от часто утомительной и ошибочной задачи ручного управления памятью.
 
 Объект становится подлежащим уничтожению, когда на него больше нет ссылок.
 
@@ -1510,7 +1729,7 @@ static void Main(string[] args)
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
+https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
 
 ### Деструкторы / Финализаторы
 
@@ -1541,10 +1760,59 @@ static void Main(string[] args)
 }
 ```
 
-**Примечание:** Сборщик мусора в .NET Framework автоматически управляет выделением и освобождением памяти для объектов. Однако, когда класс использует неуправляемые ресурсы, такие как сетевые подключения, файлы и компоненты пользовательского интерфейса, следует использовать деструктор для освобождения этих ресурсов, когда они больше не нужны.
+**Примечание:** Сборщик мусора в .NET автоматически управляет выделением и освобождением памяти для объектов. Однако, когда класс использует неуправляемые ресурсы, такие как сетевые подключения, файлы и компоненты пользовательского интерфейса, следует использовать деструктор для освобождения этих ресурсов, когда они больше не нужны.
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors
+
+---
+
+## Записи (Records)
+
+**Запись** (record) — это тип, предназначенный для хранения данных (C# 9). Для записи компилятор синтезирует: позиционный первичный конструктор, неизменяемые свойства с `init`-доступом, равенство по значению, методы `GetHashCode`/`ToString`, деконструкцию и поддержку **неразрушающего изменения** через выражения `with`.
+
+В отличие от классов, где равенство — по ссылке, две записи с одинаковыми значениями свойств считаются равными.
+
+```csharp
+using System;
+
+namespace RecordsDemonstration
+{
+    // Позиционная запись: параметры первичного конструктора становятся свойствами.
+    public record Person(string FirstName, string LastName);
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var p1 = new Person("Jane", "Doe");
+            var p2 = new Person("Jane", "Doe");
+
+            Console.WriteLine(p1 == p2);   // True — равенство по значению
+            Console.WriteLine(p1);         // Person { FirstName = Jane, LastName = Doe }
+
+            // Неразрушающее изменение: создается копия с измененными свойствами.
+            var p3 = p1 with { FirstName = "John" };
+            Console.WriteLine(p3);         // Person { FirstName = John, LastName = Doe }
+
+            // Деконструкция позиционной записи.
+            var (first, last) = p3;
+            Console.WriteLine($"{first} {last}"); // John Doe
+        }
+    }
+}
+```
+
+**Примечание 1:** По умолчанию запись — ссылочный тип (`record class`). Начиная с C# 10, можно объявить **запись-структуру** (`record struct`) — с семантикой значений, но тем же синтезированным членами.
+
+**Примечание 2:** Свойства позиционной записи получают метод доступа `init` (C# 9): значение можно задать только при создании объекта или в выражении `with`, после чего свойство изменить нельзя.
+
+**Примечание 3:** Синтезированный `ToString` можно переопределить; начиная с C# 10, переопределение в записи-классе может быть помечено `sealed`.
+
+**Примечание 4:** Проверку того, является ли значение записью определенного типа, удобно делать шаблоном типа: `if (obj is Person p) { ... }` (см. «Сопоставление с образцом»).
+
+**Узнать больше:**
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record
 
 ---
 
@@ -1561,7 +1829,7 @@ C# — это объектно-ориентированный язык. Четы
 — **Полиморфизм** означает, что у вас может быть несколько классов, которые могут использоваться взаимозаменяемо, даже если каждый класс реализует одни и те же свойства или методы по-разному.
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
+https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
 
 ## Инкапсуляция / Уровни доступа
 
@@ -1658,8 +1926,8 @@ namespace RectangleApplication
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
+https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/inheritance
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
 
 ## Полиморфизм / Изменение членов
 
@@ -1713,7 +1981,7 @@ namespace SamplePolymorphism
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
 
 ## Свойство Static
 
@@ -1774,8 +2042,8 @@ namespace StaticDemonstration
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members
 
 ## Свойства
 
@@ -1838,9 +2106,43 @@ namespace PropertiesDemonstration
 }
 ```
 
+Современные возможности свойств:
+
+- **init-доступ (C# 9):** свойство можно задать только при создании объекта или в выражении `with`, дальше оно неизменяемо:
+
+```csharp
+public string Id { get; init; }
+
+var person = new Person { Id = "42" };
+```
+
+- **required-члены (C# 11):** модификатор `required` требует обязательно инициализировать член при создании объекта:
+
+```csharp
+public class User
+{
+    public required string Name { get; init; }
+}
+
+// var user = new User();          // Ошибка компиляции: Name не инициализирован
+var user = new User { Name = "Jane" }; // OK
+```
+
+- **field-свойства (C# 14):** ключевое слово `field` обращается к синтезируемому компилятором резервному полю — не нужно объявлять его вручную и писать оба аксессора:
+
+```csharp
+public string Email
+{
+    get;
+    set => field = value?.Trim() ?? string.Empty; // нормализация в аксессоре
+}
+```
+
+- **partial-свойства и индексаторы (C# 13):** в одной части `partial`-типа — объявление, в другой — реализация.
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/properties
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
+https://learn.microsoft.com/en-us/dotnet/csharp/properties
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 
 ## Индексаторы
 
@@ -1892,7 +2194,7 @@ namespace IndexerDemonstration
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/
 
 ## Абстракция
 
@@ -1959,7 +2261,7 @@ class DerivedClass : BaseClass
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
 
 ## Интерфейсы
 
@@ -1978,6 +2280,33 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstr
 **Примечание 3:** Обычно используется буква `I` в качестве первой буквы имени интерфейса.
 
 **Примечание 4:** Интерфейсы не могут содержать поля (переменные).
+
+**Примечание 5:** Начиная с C# 8, член интерфейса может иметь **реализацию по умолчанию** (default interface member) — классам не обязательно её переопределять, а в интерфейсе можно объявлять статические члены:
+
+```csharp
+interface IOrderService
+{
+    void Process(Order order);
+
+    // Реализация по умолчанию (C# 8).
+    void ProcessAll(IEnumerable<Order> orders)
+    {
+        foreach (var order in orders)
+        {
+            Process(order);
+        }
+    }
+}
+```
+
+**Примечание 6:** Начиная с C# 11, интерфейс может объявлять `static abstract` и `static virtual` члены — в том числе операторы. Это основа обобщенной математики (generic math): числовые алгоритмы можно писать один раз для всех числовых типов:
+
+```csharp
+public interface IAddable<TSelf> where TSelf : IAddable<TSelf>
+{
+    static abstract TSelf operator +(TSelf left, TSelf right);
+}
+```
 
 ```csharp
 using System;
@@ -2038,10 +2367,10 @@ namespace InterfacesDemonstration
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface
 
-### Namespaces
+### Пространства имен (Namespaces)
 
 **Namespaces** предоставляют способ группировки связанных элементов верхнего уровня в иерархию. Они также используются для предотвращения конфликтов имен. Элемент верхнего уровня, такой как класс, который не входит в пространство имен, считается принадлежащим к **стандартному пространству имен**. Его можно переместить в другое пространство имен, заключив его в блок пространства имен. Вы можете использовать пространство имен для организации кодовых элементов. Вы можете определить свои собственные пространства имен и использовать их в своей программе.
 
@@ -2050,27 +2379,35 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/inter
 - Они организуют большие проекты по программированию.
 - Они ограничены использованием оператора ``.``.
 - Ключевое слово `using` указывает, что программа использует определенное пространство имен.
-- Глобальное пространство имен является корневым пространством имен: `1global::System` всегда будет ссылаться на пространство имен **.NET** System.
+- Глобальное пространство имен является корневым пространством имен: `global::System` всегда будет ссылаться на пространство имен **.NET** System.
 
 **Примечание 1:** Соглашения о наименовании пространств имен такие же, как и для классов, с каждой словоформой, начинающейся с заглавной буквы.
 
-**Примечание 2:** **.NET Framework** использует пространства имен для организации своих классов.
+**Примечание 2:** Библиотеки классов **.NET** организованы с помощью пространств имен.
+
+**Примечание 3:** Начиная с C# 10, пространство имен можно объявить для всего файла одной строкой — **пространство имен с областью действия файла** (file-scoped namespace), без фигурных скобок. Такой шаблон по умолчанию создают современные шаблоны проектов:
 
 ```csharp
-namespace NamespaceDemonstration
+namespace NamespaceDemonstration; // Точка с запятой вместо блока { }
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            System.Console.WriteLine("Hello World!");
-        }
+        System.Console.WriteLine("Hello World!");
     }
 }
 ```
 
+**Примечание 4:** **Глобальные using-директивы** (C# 10) подключают пространства имен сразу во всех файлах проекта, а псевдоним через `using` начиная с C# 12 может ссылаться на **любой тип**, а не только на именованные:
+
+```csharp
+global using System.Collections.Generic;              // Действует во всех файлах проекта
+using IntList = System.Collections.Generic.List<int>; // Псевдоним любого типа (C# 12)
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/
 
 ## Перегрузка операторов
 
@@ -2119,7 +2456,68 @@ namespace OperatorOverloadDemonstration
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
+
+---
+
+## Методы расширения
+
+**Методы расширения** позволяют «добавлять» методы к существующим типам, не создавая новый производный тип. Это статический метод, который вызывается так, будто он является методом экземпляра расширенного типа. Первому параметру предшествует модификатор `this`; сам метод объявляется в статическом классе верхнего (не вложенного) уровня. На методах расширения построен LINQ: `Where`, `Select`, `OrderBy` и т.д. (см. раздел «Встроенный язык запросов (LINQ)»).
+
+```csharp
+using System;
+
+namespace ExtensionMethodsDemonstration
+{
+    public static class StringExtensions
+    {
+        // this string — расширяемый тип.
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value[..maxLength] + "…";
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string text = "C# extension methods";
+            Console.WriteLine(text.Truncate(2)); // C#
+        }
+    }
+}
+```
+
+**Extension members (C# 14):** новый синтаксис `extension`-блоков позволяет объявлять, помимо методов расширения, **свойства расширения**, а также статические члены и операторы, вызываемые так, будто они являются частью расширенного типа:
+
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+
+public static class EnumerableExtensions
+{
+    extension<TSource>(IEnumerable<TSource> source) // Блок расширения
+    {
+        // Свойство расширения (C# 14)
+        public bool IsEmpty => !source.Any();
+    }
+
+    extension<TSource>(IEnumerable<TSource>) // Блок с типом-приемником без имени: статические члены
+    {
+        public static IEnumerable<TSource> Empty => Enumerable.Empty<TSource>();
+    }
+}
+
+// Вызов:
+// if (numbers.IsEmpty) { ... }
+// var none = IEnumerable<int>.Empty;
+```
+
+**Узнать больше:**
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension
 
 ---
 
@@ -2133,7 +2531,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/oper
 
 **Примечание 2:** В C# также можно определить обобщенные делегиты.
 
-**Примечание 3:** В .NET [```Func```](https://docs.microsoft.com/en-us/dotnet/api/system.func-1) и [```Action```](https://docs.microsoft.com/en-us/dotnet/api/system.action) являются встроенными обобщенными делегатами, которые следует использовать для большинства распространенных делегатов, а не создавать новые пользовательские.
+**Примечание 3:** В .NET [```Func```](https://learn.microsoft.com/en-us/dotnet/api/system.func-1) и [```Action```](https://learn.microsoft.com/en-us/dotnet/api/system.action) являются встроенными обобщенными делегатами, которые следует использовать для большинства распространенных делегатов, а не создавать новые пользовательские.
 
 Работа с делегатами включает три шага:
 
@@ -2275,8 +2673,8 @@ C# предоставляет некоторые встроенные делег
 - **Predicate<>**: представляет метод, который принимает один входной параметр и возвращает булево значение на основе некоторых критериев.
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
-https://docs.microsoft.com/en-us/dotnet/api/system.delegate
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+https://learn.microsoft.com/en-us/dotnet/api/system.delegate
 
 ## Анонимные методы
 
@@ -2304,7 +2702,7 @@ public class Program
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions
 
 ## Выражения лямбда
 
@@ -2332,8 +2730,32 @@ namespace LambdaDemonstration
 }
 ```
 
+Современные улучшения лямбда-выражений:
+
+- **Естественный тип (C# 10):** компилятор может сам вывести делегат `Func<...>`/`Action<...>`, а лямбде можно указать явный тип возвращаемого значения:
+
+```csharp
+var increment = (int x) => x + 1;               // Func<int, int>
+object parse = int (string s) => int.Parse(s);  // Явный тип возврата (C# 10)
+```
+
+- **Параметры по умолчанию (C# 12):**
+
+```csharp
+var add = (int a, int b = 1) => a + b;
+Console.WriteLine(add(5)); // 6
+```
+
+- **Модификаторы простых параметров (C# 14):** `ref`, `in`, `out`, `scoped` можно указывать без явного типа параметра:
+
+```csharp
+delegate bool TryParse<T>(string text, out T result);
+
+TryParse<int> parse = (text, out result) => Int32.TryParse(text, out result);
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 
 ---
 
@@ -2341,7 +2763,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lamb
 
 События позволяют классу или объекту уведомлять другие классы или объекты о возникновении чего-либо интересного. Класс, который отправляет (или вызывает) событие, называется **распространителем**, а классы, которые получают (или обрабатывают) событие, называются **подписчиками**.
 
-Рассматривайте событие как **инкапсулированный делегат**; Он зависит от делегата. Делегат определяет сигнатуру метода обработчика событий класса-подписчика. Он также избегает перезаписи ссылки на метод путем ограничения использования оператора присваивания `=``.
+Рассматривайте событие как **инкапсулированный делегат**; Он зависит от делегата. Делегат определяет сигнатуру метода обработчика событий класса-подписчика. Он также избегает перезаписи ссылки на метод путем ограничения использования оператора присваивания `=`.
 
 **Объявление событий:**
 
@@ -2383,7 +2805,7 @@ namespace EventDemonstration
 }
 ```
 
-## Примечания:
+### Примечания:
 
 - Событие является оберткой для делегата. Оно зависит от делегата.
 - Используйте ключевое слово "event" с типом делегата переменной для объявления события.
@@ -2391,8 +2813,8 @@ namespace EventDemonstration
 - Распространительный класс вызывает событие, а класс-подписчик регистрируется на событие и предоставляет метод обработчика событий.
 - Название метода, который вызывает событие, начинается с "**On**" с именем события.
 - Подпись метода обработчика событий должна соответствовать подписи делегата.
-- Зарегистрируйтесь на событие, используя оператор `+=``.
-- Отмените регистрацию на событие, используя оператор `-=``.
+- Зарегистрируйтесь на событие, используя оператор `+=`.
+- Отмените регистрацию на событие, используя оператор `-=`.
 - Передайте данные события, используя `EventHandler<TEventArgs>`.
 - Создайте класс пользовательских данных события, наследовавшись от `EventArgs`.
 - События могут быть объявлены как `static`, `virtual`, `sealed` и `abstract`.
@@ -2400,7 +2822,7 @@ namespace EventDemonstration
 - Обработчики событий вызываются **синхронно**, если есть несколько подписчиков.
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
 
 ---
 
@@ -2454,8 +2876,28 @@ namespace Example
 }
 ```
 
+Современные возможности обобщений:
+
+- **Обобщенные атрибуты (C# 11):** атрибут может быть обобщенным типом:
+
+```csharp
+public class TypeNameAttribute<T> : Attribute { }
+
+[TypeName<string>]
+public class Entity { }
+```
+
+- **Ограничение `allows ref struct` (C# 13):** разрешает передавать `ref struct`-типы (например, `Span<T>`) в качестве аргументов типа:
+
+```csharp
+public static void Process<T>(T item) where T : allows ref struct
+{
+    // T может быть Span<int>, ReadOnlySpan<char> и т.п.
+}
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
 
 ---
 
@@ -2467,8 +2909,35 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
 
 Коллекция обычно включает методы для добавления, удаления и подсчета объектов. Для перебора элементов коллекции используются оператор `for...in` и оператор `foreach`. Поскольку коллекция является классом, вам сначала необходимо объявить экземпляр класса, прежде чем добавлять элементы в эту коллекцию.
 
+## Выражения коллекций (C# 12)
+
+**Выражения коллекций** — новый единый синтаксис `[...]` для создания любых коллекций: массивов, `List<T>`, `Span<T>` и других. **Элемент распространения** (`..`, spread) разворачивает другую коллекцию внутри выражения:
+
+```csharp
+int[] numbers = [1, 2, 3, 4, 5];       // Массив вместо new int[] { 1, 2, 3, 4, 5 }
+List<int> list = [1, 2, 3];            // List<T>
+
+int[] combined = [..numbers, 6, 7];    // 1 2 3 4 5 6 7 — spread-элемент ..
+List<int> merged = [..list, ..numbers];
+```
+
+## params-коллекции (C# 13)
+
+Модификатор `params` больше не ограничен массивами — им можно объявлять любой поддерживаемый тип коллекции, включая `Span<T>` и интерфейсы:
+
+```csharp
+static int Sum(params List<int> values)
+{
+    int sum = 0;
+    foreach (int value in values) sum += value;
+    return sum;
+}
+
+// Вызов остался прежним: Sum(1, 2, 3)
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/standard/generics/collections
+https://learn.microsoft.com/en-us/dotnet/standard/generics/collections
 
 ## Список
 
@@ -2512,7 +2981,7 @@ namespace SampleList
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
 
 ## Отсортированный список
 
@@ -2550,7 +3019,7 @@ namespace SampleSortedList
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2
 
 ## Битовый массив
 
@@ -2601,7 +3070,7 @@ namespace SampleBitArray
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.bitarray
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.bitarray
 
 ## Стек
 
@@ -2651,7 +3120,7 @@ namespace SampleStack
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1
 
 ## Очередь
 
@@ -2700,7 +3169,7 @@ namespace SampleQueue
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1
 
 ## Словарь
 
@@ -2738,7 +3207,7 @@ namespace SampleDictionary
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2
 
 ## Хэш-набор
 
@@ -2784,7 +3253,7 @@ namespace SampleHashSet
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
 
 ---
 
@@ -2801,8 +3270,7 @@ static void Main(string[] args)
 }
 ```
 
-## Примечание:
-Константные поля не могут иметь модификатор `static`. Они по умолчанию являются статическими и к ним обращаются так же, как и к статическим полям.
+**Примечание:** Константные поля не могут иметь модификатор `static`. Они по умолчанию являются статическими и к ним обращаются так же, как и к статическим полям.
 
 ### Ключевое слово "readonly"
 
@@ -2834,8 +3302,8 @@ class MyClass
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const
 
 ---
 
@@ -2866,9 +3334,27 @@ static void Main(string[] args)
 }
 ```
 
+Начиная с C# 8, доступны **асинхронные потоки**: метод может возвращать `IAsyncEnumerable<T>`, а `await foreach` перебирает элементы по мере их готовности, не блокируя поток:
+
+```csharp
+await foreach (int item in GenerateSequence())
+{
+    Console.WriteLine(item);
+}
+
+static async IAsyncEnumerable<int> GenerateSequence()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        await Task.Delay(100);
+        yield return i;
+    }
+}
+```
+
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/async
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+https://learn.microsoft.com/en-us/dotnet/csharp/async
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
 
 ---
 
@@ -2906,7 +3392,7 @@ namespace Example
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/api/system.io.file
+https://learn.microsoft.com/en-us/dotnet/api/system.io.file
 
 ---
 
@@ -2939,9 +3425,9 @@ class LINQQueryExpressions
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/linq/
-https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/working-with-linq
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
+https://learn.microsoft.com/en-us/dotnet/csharp/linq/
+https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/working-with-linq
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 
 ---
 
@@ -2951,14 +3437,14 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 
 Атрибуты используются для добавления метаданных, таких как инструкции компилятора и другая информация, такая как комментарии, описания, методы и классы, в программу.
 
-В .NET Framework предоставляются две реализации атрибутов:
+В .NET предоставляются две реализации атрибутов:
 
 - Предустановленные атрибуты
 - Пользовательские атрибуты
 
 ### Предустановленные атрибуты
 
-Предустановленные атрибуты — это атрибуты, которые являются частью библиотеки классов .NET Framework и поддерживаются компилятором C# для определенной цели.
+Предустановленные атрибуты — это атрибуты, которые являются частью библиотеки классов .NET и поддерживаются компилятором C# для определенной цели.
 
 Некоторые популярные предустановленные атрибуты, производные от базового класса `System.Attribute`, включают в себя:
 
@@ -2998,7 +3484,7 @@ class GFG2
 
 ## Пользовательские атрибуты
 
-Пользовательские атрибуты могут быть созданы в C# для прикрепления декларативной информации к методам, сборкам, свойствам, типам и т.д. любым необходимым способом. Это увеличивает расширяемость .NET Framework.
+Пользовательские атрибуты могут быть созданы в C# для прикрепления декларативной информации к методам, сборкам, свойствам, типам и т.д. любым необходимым способом. Это увеличивает расширяемость .NET.
 
 ```csharp
 // C# program to demonstrate Custom Attributes
@@ -3045,17 +3531,35 @@ public class GFG
 ```
 
 **Узнать больше:**
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
+
+---
+
+## Что нового в C# 9–14
+
+Краткая карта возможностей языка, добавленных после версии C# 8. Подробности — в соответствующих разделах шпаргалки.
+
+| Версия | Ключевые возможности |
+| ------ | -------------------- |
+| **C# 9** (2020, .NET 5) | Записи (records), `init`-сеттеры, инструкции верхнего уровня, реляционные и логические шаблоны, target-typed `new`, ковариантные возвращаемые типы, статические лямбды |
+| **C# 10** (2021, .NET 6) | Записи-структуры (`record struct`), пространства имен с областью действия файла, глобальные `using`, естественный тип лямбд, константные интерполированные строки, расширенные шаблоны свойств |
+| **C# 11** (2022, .NET 7) | Raw string literals (`"""`), `required`-члены, шаблоны списков, обобщенные атрибуты, `static abstract` члены интерфейсов, типы, локальные для файла, UTF-8 литералы |
+| **C# 12** (2023, .NET 8) | Первичные конструкторы (primary constructors), выражения коллекций и spread (`..`), псевдоним любого типа через `using`, параметры `ref readonly`, inline-массивы, параметры лямбд по умолчанию |
+| **C# 13** (2024, .NET 9) | `params`-коллекции, новый тип `System.Threading.Lock` для `lock`, `partial`-свойства и индексаторы, escape-последовательность `\e`, неявный доступ по индексу в инициализаторах |
+| **C# 14** (2025, .NET 10) | Extension members (свойства, статические члены, операторы расширений), null-conditional assignment (`?.` слева от `=`), `field`-свойства, `partial`-конструкторы и события, модификаторы у простых параметров лямбд, `nameof` для unbound generics |
 
 ---
 
 ## Ссылки
 
 **Официальная C# документация:**
-https://docs.microsoft.com/en-us/dotnet/csharp/
+https://learn.microsoft.com/en-us/dotnet/csharp/
 
 **Официальная ссылка на язык C#:**
-https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/
+
+**Что нового в C# (по версиям):**
+https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
 
 **Официальное руководство пользователя Unity:**
 https://docs.unity3d.com/Manual/index.html
@@ -3075,4 +3579,4 @@ https://docs.unity3d.com/Manual/index.html
 
 **На основе:**
 
-- В этом руководстве использовано несколько примеров и определений из [Microsoft's .NET documentation](https://docs.microsoft.com/en-us/dotnet/).
+- В этом руководстве использовано несколько примеров и определений из [Microsoft's .NET documentation](https://learn.microsoft.com/en-us/dotnet/).
